@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://popol1991.github.com/popol/atom.xml" rel="self"/>
-  <link href="http://popol1991.github.com/popol/"/>
-  <updated>2012-09-24T00:49:00+08:00</updated>
-  <id>http://popol1991.github.com/popol/</id>
+  <link href="http://popol1991.github.com/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2012-09-26T00:17:21+08:00</updated>
+  <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
     
@@ -14,11 +14,32 @@
 
   
   <entry>
+    <title type="html"><![CDATA[new post]]></title>
+    <link href="http://popol1991.github.com/blog/2012/09/26/new-post/"/>
+    <updated>2012-09-26T00:12:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/09/26/new-post</id>
+    <content type="html"><![CDATA[<p>i want to say something here!!!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[test]]></title>
+    <link href="http://popol1991.github.com/blog/2012/09/24/test/"/>
+    <updated>2012-09-24T01:13:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/09/24/test</id>
+    <content type="html"><![CDATA[<p>&#8216;为什么显示不出来？
+  why cannot display？
+or here under the dash?</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[first post]]></title>
-    <link href="http://popol1991.github.com/popol/blog/2012/09/24/first-post/"/>
+    <link href="http://popol1991.github.com/blog/2012/09/24/first-post/"/>
     <updated>2012-09-24T00:47:00+08:00</updated>
-    <id>http://popol1991.github.com/popol/blog/2012/09/24/first-post</id>
-    <content type="html"><![CDATA[
+    <id>http://popol1991.github.com/blog/2012/09/24/first-post</id>
+    <content type="html"><![CDATA[<p>why cannot display!!!!
+should I input some content here??</p>
 ]]></content>
   </entry>
   
