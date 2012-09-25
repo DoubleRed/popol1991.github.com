@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Sound of Wind]]></title>
-  <link href="http://popol1991.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: development | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
   <updated>2012-09-26T01:13:33+08:00</updated>
   <id>http://popol1991.github.com/</id>
