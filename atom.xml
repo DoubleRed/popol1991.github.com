@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-09-26T00:57:11+08:00</updated>
+  <updated>2012-09-26T00:59:30+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -23,8 +23,9 @@
 <p>第一篇test post就随便写一下在MacOS里怎么用ln命令使得我们可以轻松的在terminal里调用正常的应用。
 以Sublime Text 2为例，正好我刚刚想用它来编辑我的blog，所以在terminal里输入以下命令：</p>
 
-<p><code>sudo touch /usr/local/bin/subl'
-'sudo ln -f /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl</code></p>
+<pre><code>sudo touch /usr/local/bin/subl
+sudo ln -f /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl`
+</code></pre>
 
 <p>然后就可以在命令行里直接用subl调用Sublime Text 2了！这样的好处是可以直接传递一些参数，不用每次都在图形界面里拖来拖去就是了！</p>
 ]]></content>
