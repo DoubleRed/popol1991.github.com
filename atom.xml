@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-09-26T22:35:33+08:00</updated>
+  <updated>2012-10-16T13:00:40+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[how to manage my web reading list]]></title>
+    <link href="http://popol1991.github.com/blog/2012/10/16/how-to-manage-my-reading-list/"/>
+    <updated>2012-10-16T12:52:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/10/16/how-to-manage-my-reading-list</id>
+    <content type="html"><![CDATA[<p>If you are using iOS and OS X devices, it would be really convenient and even elegent to manage your web reading list using the &#8216;read list&#8217; function of Safari and the automatically synchronization among multiple devices using iCloud.<br/>
+However, after finish reading a web page, I want to archive them in some place from where tagging and searching could be easy.  Gmail comes to mind.<br/>
+So I created a account for archive web pages, and every time I finish reading a page, I mail it out to the account using the &#8216;share&#8217; function of iDevices.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[我们差在哪了?]]></title>
