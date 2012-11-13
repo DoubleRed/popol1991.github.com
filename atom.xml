@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-11-13T12:09:59+08:00</updated>
+  <updated>2012-11-13T13:13:42+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -87,9 +87,15 @@
 <li>Be simple: &#8220;Premature optimization is the root of all evil in programming&#8221; &#8211; Knuth</li>
 <li>Code for humans</li>
 <li><strong>SLAP</strong>: Single Level of Abstraction Per Method</li>
-<li>Do not release temporary code
+<li>Do not release temporary code</li>
+</ul>
+</li>
+</ul>
 
-<h2>L2P2 - Refactoring</h2></li>
+
+<h2>L2P2 - Refactoring</h2>
+
+<ul>
 <li>Some commonly used refactorings:
 
 <ul>
@@ -103,15 +109,17 @@
 <li><a href="http://refactoring.com/catalog/replaceParameterWithExplicitMethods.html">Replace Parameter with Explicit Methods</a></li>
 <li><a href="http://refactoring.com/catalog/reverseConditional.html">Reverse Conditional</a></li>
 <li><a href="http://refactoring.com/catalog/splitLoop.html">Split Loop</a></li>
-<li><a href="http://refactoring.com/catalog/splitTemporaryVariable.html">Split Temporary Variable</a>
-
-<h2>L2P3 - RCS</h2></li>
+<li><a href="http://refactoring.com/catalog/splitTemporaryVariable.html">Split Temporary Variable</a></li>
 </ul>
 </li>
+</ul>
+
+
+<h2>L2P3 - RCS</h2>
+
+<ul>
 <li>Centralized RCS: SVN, CVS</li>
 <li>Distributed RCS: Mercurial, Git</li>
-</ul>
-</li>
 </ul>
 
 ]]></content>
