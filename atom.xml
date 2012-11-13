@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-11-13T13:24:27+08:00</updated>
+  <updated>2012-11-13T23:09:46+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -12,6 +12,149 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SE in NUS - Revision Note 2]]></title>
+    <link href="http://popol1991.github.com/blog/2012/11/13/se-in-nus-revision-note-2/"/>
+    <updated>2012-11-13T13:27:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/11/13/se-in-nus-revision-note-2</id>
+    <content type="html"><![CDATA[<h1>Lecture 3</h1>
+
+<h2>L3P1 - Figuring out Requirements</h2>
+
+<ul>
+<li>Functional requirements specify what the system should do.</li>
+<li>Non-functional requirements specify the constraints under which system gets developed and operated.</li>
+</ul>
+
+
+<h3>Establishing Requirements</h3>
+
+<ul>
+<li>Commonly used techniques to gather requirements (Note: All these techniques are also useful for investors or programmers themselves to decide whether the program is desirable to be implemented)
+
+<ul>
+<li>Brainstorming</li>
+<li>User surveys</li>
+<li>Observation</li>
+<li>Interviews</li>
+<li>Focus groups</li>
+<li>Prototyping (Note: prototype is important for incremental programming, especially agile development.  It is very useful for further specifying the requirements because hardly no one could clearly know what they want until they really use the program.  On the other hand, for developers, especially student programmer, it could be very encouraging that the program is always runnable.)</li>
+<li>Analyzing similar products and documentation</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Specifying Requirements</h3>
+
+<ul>
+<li>Some tools and techniques that can be used to specify requirements
+
+<ul>
+<li>Textual descriptions</li>
+<li>Feature list</li>
+<li>User stories
+<img class="right" src="http://popol1991.github.com/images/posts/use%20case.png" width="200"></li>
+<li>Use Case: A use case describes an interaction between the user and the system for <strong>a specific functionality</strong> of the system.
+
+<ul>
+<li>Main Success Scenario (MSS) describes the most straightforward interaction for a given use case, which assumes nothing goes wrong.</li>
+<li>Extensions, given below the MSS, are exceptional flow or alternative flow of events.</li>
+</ul>
+</li>
+<li>Glossary: ensure all stakeholders have a common understanding of the noteworthy terms, abbreviation, acronyms etc.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>L3P2 - Designing the Product</h2>
+
+<h3>Product Design</h3>
+
+<ul>
+<li>Focus features: Focus on the must-have features, always aim in <strong>one direction</strong>.</li>
+<li>Focus users: Develop software for someone, not for everyone.</li>
+<li>Usability is king: don&#8217;t make user stupid. Minimize work for users, for example clicks, choices, switching between mouse and keyboard, etc.</li>
+</ul>
+
+
+<h1>Lecture 4</h1>
+
+<h2>L4P1 - Architecture</h2>
+
+<h3>Common Architecture Styles</h3>
+
+<ul>
+<li>N-Tier Architecture
+
+<ul>
+<li>Higher layers make use of services provided by lower layers.</li>
+<li>Notice that Lower layers are independent of higher layers.</li>
+<li>Comman layers: UI-Logic-Storage, Service-DAO</li>
+</ul>
+</li>
+<li>Client-Server/Browser-Server</li>
+<li>Transaction Processing Architecture
+
+<ul>
+<li>transactions are given to a <strong>dispatcher</strong> that controls the execution of each transaction.</li>
+</ul>
+</li>
+<li>Service-oriented Architecture (SOA)
+
+<ul>
+<li>Example: Web Service</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Components and AIPs</h3>
+
+<ul>
+<li><strong>Interface</strong>: the list of public operations supported by a component and what each operation does.</li>
+<li><strong>Application Programming Interface (API)</strong>: contract between the component and its users, which could be other components as well as other softwares.</li>
+<li><strong>Modeling component behavior using Sequence Diagrams</strong>
+<img class="right" src="http://popol1991.github.com/images/posts/sd.png" width="300">
+
+<ul>
+<li>A UML sequence diagram captures the <em>interactions between multiple components for a given scenario.</em></li>
+<li>Discorver APIs from SD</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Different approaches to design</h3>
+
+<ul>
+<li><strong>Top-down V.S. Bottom-up</strong>
+
+<ul>
+<li><strong>Top-down</strong>: start from very high-level by taking the system as one big black box and then broke it into a handful of smaller components.  When using top-down design, we do not have to worry about low level details until much later int he design and the low level details of a given component can be worked out by those working on that component, without getting the whole team involved.  <strong>The top-down approach is often used when creating a big product from scratch.</strong></li>
+<li><strong>Bottom-up</strong>: start with lower level details (e.g. data structures, storage formats, functions etc.) and progressively group them together to create bigger components.  <strong>This is often used when the system is small or when we are building a variation of a product we’ve built before and we already have a large collection of reusable assets from the previous product that we can use in the new product.</strong></li>
+</ul>
+</li>
+<li><strong>Agile V.S. Full-design-up-front</strong>
+
+<ul>
+<li>Agile Development is adapt to changes.</li>
+<li>Full-design-up-front Development is more applicable for system like outer space exploring system used by NASA.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>L4P2 - Never Too Early to Test</h2>
+
+<h3>Cost of Fixing Software Bugs</h3>
+
+<p>The earlier we find a bug, the easier and cheaper to fix it.
+<img src="http://popol1991.github.com/images/posts/cost_of_test.png"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SE in NUS - Revision Note 1]]></title>
