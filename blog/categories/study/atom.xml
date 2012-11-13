@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Study | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/study/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2012-11-13T12:09:59+08:00</updated>
+  <id>http://popol1991.github.com/</id>
+  <author>
+    <name><![CDATA[popol]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SE in NUS - Revision Note 1]]></title>
+    <link href="http://popol1991.github.com/blog/2012/11/13/se-in-nus-revision-note-1/"/>
+    <updated>2012-11-13T11:45:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/11/13/se-in-nus-revision-note-1</id>
+    <content type="html"><![CDATA[<h1>Lecture 1</h1>
+
+<h2>L1P1 - Software Engineering Rocks</h2>
+
+<h3>Joys of the Craft</h3>
+
+<ol>
+<li>Sheer joy of making things.</li>
+<li>Making things that are useful to other people.</li>
+<li>Fascination of fashioning complex puzzle-like objects of interlocking moving parts and watching them work in subtle cycles, playing out the consequences of principles built in from the beginning.</li>
+<li>Always learning, which springs from the nonrepeating nature of the task.</li>
+<li>Delight of working in such a tractable medium.</li>
+</ol>
+
+
+<h3>Woes of the Craft</h3>
+
+<ol>
+<li>One must perform perfectly.</li>
+<li>Other people set one's objectives, provide one's resources, and furnish one's information.</li>
+<li>Dependence upon others.</li>
+<li>Designing grand concepts is fun; finding nitty little bugs is just work.</li>
+<li>product obsolete upon/before completion.</li>
+</ol>
+
+
+<h2>L1P3 - Preventing Regression</h2>
+
+<ul>
+<li><strong>SUT</strong>: Software Under Test</li>
+<li><strong>Scripted v.s. Exploratory Testing</strong>
+
+<ul>
+<li><strong>Exploratory</strong>: The next test case is based on what happened to the previous test cases; the success of exploratory testing depends on the tester's prior experience and intuition.</li>
+<li><strong>Scripted</strong>: predetermined set of test cases.</li>
+<li><strong>Bach</strong>:"I find that most situations benefit from a mix of scripted and exploratory approaches."</li>
+</ul>
+</li>
+<li><strong>Regression Testing</strong>
+
+<ul>
+<li>The nature of software is such that even a tiny modification can result in a complete melt down of the whole system.</li>
+<li>Regression testing is more effective when it is down frequently, hence it's more practical if it is automated.</li>
+</ul>
+</li>
+</ul>
+
+
+<h1>Lecture 2</h1>
+
+<h2>L2P1 - Good Code, Bad Code</h2>
+
+<ul>
+<li>Code Quality
+
+<ul>
+<li>Follow a standard</li>
+<li>Proper Naming</li>
+<li>Be obvious: 1.explicit type conversion; 2.parenthese/braces even when can skip; 3. ...</li>
+<li>No misuse of syntax: 1.default option; 2.one variable for one purpose; 3. ...</li>
+<li>Avoid error-prone practice</li>
+<li>Minimize global variables</li>
+<li>Avoid magic numbers</li>
+<li>Throw out garbage</li>
+<li>Minimize duplication</li>
+<li>Make comments unnecessary: Use comments to explain 'why' and 'what' aspect of the code rather than the 'how' aspect.</li>
+<li>Be simple: "Premature optimization is the root of all evil in programming" -- Knuth</li>
+<li>Code for humans</li>
+<li><strong>SLAP</strong>: Single Level of Abstraction Per Method</li>
+<li>Do not release temporary code
+
+<h2>L2P2 - Refactoring</h2></li>
+<li>Some commonly used refactorings:
+
+<ul>
+<li><a href="http://refactoring.com/catalog/consolidateConditionalExpression.html">Consolidate Conditional Expression</a></li>
+<li><a href="http://refactoring.com/catalog/decomposeConditional.html">Decompose Conditional</a></li>
+<li><a href="http://refactoring.com/catalog/inlineMethod.html">Inline Method</a></li>
+<li><a href="http://refactoring.com/catalog/introduceExplainingVariable.html">Introduce Explaining Variable</a></li>
+<li><a href="http://refactoring.com/catalog/removeDoubleNegative.html">Remove Double Negative</a></li>
+<li><a href="http://refactoring.com/catalog/replaceMagicNumberWithSymbolicConstant.html">Replace Magic Number with Symbolic Constant</a></li>
+<li><a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></li>
+<li><a href="http://refactoring.com/catalog/replaceParameterWithExplicitMethods.html">Replace Parameter with Explicit Methods</a></li>
+<li><a href="http://refactoring.com/catalog/reverseConditional.html">Reverse Conditional</a></li>
+<li><a href="http://refactoring.com/catalog/splitLoop.html">Split Loop</a></li>
+<li><a href="http://refactoring.com/catalog/splitTemporaryVariable.html">Split Temporary Variable</a>
+
+<h2>L2P3 - RCS</h2></li>
+</ul>
+</li>
+<li>Centralized RCS: SVN, CVS</li>
+<li>Distributed RCS: Mercurial, Git</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
