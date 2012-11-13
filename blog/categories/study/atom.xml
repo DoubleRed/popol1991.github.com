@@ -4,7 +4,7 @@
   <title><![CDATA[Category: study | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/study/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-11-13T23:32:27+08:00</updated>
+  <updated>2012-11-13T23:42:29+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -55,7 +55,7 @@
 <li>Textual descriptions</li>
 <li>Feature list</li>
 <li>User stories
-<img class="right" src="http://popol1991.github.com/images/posts/use%20case.png" width="200"></li>
+{% img right http://popol1991.github.com/images/posts/use%20case.png 200 %}</li>
 <li>Use Case: A use case describes an interaction between the user and the system for <strong>a specific functionality</strong> of the system.
 
 <ul>
@@ -117,11 +117,11 @@
 <li><strong>Interface</strong>: the list of public operations supported by a component and what each operation does.</li>
 <li><strong>Application Programming Interface (API)</strong>: contract between the component and its users, which could be other components as well as other softwares.</li>
 <li><strong>Modeling component behavior using Sequence Diagrams</strong>
-<img class="right" src="http://popol1991.github.com/images/posts/sd.png" width="300">
+{% img right http://popol1991.github.com/images/posts/sd.png 300 %}
 
 <ul>
 <li>A UML sequence diagram captures the <em>interactions between multiple components for a given scenario.</em></li>
-<li>Discorver APIs from SD</li>
+<li>Discover APIs from SD</li>
 </ul>
 </li>
 </ul>
@@ -151,9 +151,39 @@
 
 <h3>Cost of Fixing Software Bugs</h3>
 
-<p>The earlier we find a bug, the easier and cheaper to fix it.</p>
+<p>The earlier we find a bug, the easier and cheaper to fix it.
+{% right img http://popol1991.github.com/images/posts/cost_of_test.png %}
+* <strong>Unit Test</strong>: unit testing is for testing of individual units (methods, classes, subsystems, ...)
+* <strong>Integration Test</strong>: Integration testing allows verification of the correctness of interactions between subsystems.</p>
 
-<p><img src="http://popol1991.github.com/images/posts/cost_of_test.png"></p>
+<h3>Automated API testing</h3>
+
+<ul>
+<li>Test Driver: invoke the SUT with test inputs.</li>
+<li>Stub/Mock: a dummy module that receives outgoing messages from the SUT
+
+<ul>
+<li>Do noghing</li>
+<li>Keep records</li>
+<li>Return hard-coded responses</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Test-Driven Development (TDD)</h3>
+
+<ol>
+<li>Decide what behavior to implement.</li>
+<li>write test cases to test that behavior.</li>
+<li>run those test cases and watch them fail.</li>
+<li>implement the behavior.</li>
+<li>run the test case.</li>
+<li>keep modifying the code and rerunning test cases until they all pass.</li>
+<li>refactor code to improve quality.</li>
+<li>repeat the cycle for each small unit of behavior you want to implement.</li>
+</ol>
+
 ]]></content>
   </entry>
   
