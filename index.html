@@ -129,122 +129,9 @@ Non-functional requirements specify the &hellip;">
 
 <h2>L3P2 - Designing the Product</h2>
 
-<h3>Product Design</h3>
-
-<ul>
-<li>Focus features: Focus on the must-have features, always aim in <strong>one direction</strong>.</li>
-<li>Focus users: Develop software for someone, not for everyone.</li>
-<li>Usability is king: don&#8217;t make user stupid. Minimize work for users, for example clicks, choices, switching between mouse and keyboard, etc.</li>
-</ul>
-
-
-<h1>Lecture 4</h1>
-
-<h2>L4P1 - Architecture</h2>
-
-<h3>Common Architecture Styles</h3>
-
-<ul>
-<li>N-Tier Architecture
-
-<ul>
-<li>Higher layers make use of services provided by lower layers.</li>
-<li>Notice that Lower layers are independent of higher layers.</li>
-<li>Comman layers: UI-Logic-Storage, Service-DAO</li>
-</ul>
-</li>
-<li>Client-Server/Browser-Server</li>
-<li>Transaction Processing Architecture
-
-<ul>
-<li>transactions are given to a <strong>dispatcher</strong> that controls the execution of each transaction.</li>
-</ul>
-</li>
-<li>Service-oriented Architecture (SOA)
-
-<ul>
-<li>Example: Web Service</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Components and AIPs</h3>
-
-<ul>
-<li><strong>Interface</strong>: the list of public operations supported by a component and what each operation does.</li>
-<li><strong>Application Programming Interface (API)</strong>: contract between the component and its users, which could be other components as well as other softwares.</li>
-<li><strong>Modeling component behavior using Sequence Diagrams</strong>
-<img class="right" src="http://popol1991.github.com/images/posts/sd.png" width="300">
-
-<ul>
-<li>A UML sequence diagram captures the <em>interactions between multiple components for a given scenario.</em></li>
-<li>Discover APIs from SD</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Different approaches to design</h3>
-
-<ul>
-<li><strong>Top-down V.S. Bottom-up</strong>
-
-<ul>
-<li><strong>Top-down</strong>: start from very high-level by taking the system as one big black box and then broke it into a handful of smaller components.  When using top-down design, we do not have to worry about low level details until much later int he design and the low level details of a given component can be worked out by those working on that component, without getting the whole team involved.  <strong>The top-down approach is often used when creating a big product from scratch.</strong></li>
-<li><strong>Bottom-up</strong>: start with lower level details (e.g. data structures, storage formats, functions etc.) and progressively group them together to create bigger components.  <strong>This is often used when the system is small or when we are building a variation of a product we’ve built before and we already have a large collection of reusable assets from the previous product that we can use in the new product.</strong></li>
-</ul>
-</li>
-<li><strong>Agile V.S. Full-design-up-front</strong>
-
-<ul>
-<li>Agile Development is adapt to changes.</li>
-<li>Full-design-up-front Development is more applicable for system like outer space exploring system used by NASA.</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>L4P2 - Never Too Early to Test</h2>
-
-<h3>Cost of Fixing Software Bugs</h3>
-
-<p>The earlier we find a bug, the easier and cheaper to fix it.
-<img class="right" src="http://popol1991.github.com/images/posts/cost_of_test.png">
-* <strong>Unit Test</strong>: unit testing is for testing of individual units (methods, classes, subsystems, &#8230;)
-* <strong>Integration Test</strong>: Integration testing allows verification of the correctness of interactions between subsystems.</p>
-
-<h3>Automated API testing</h3>
-
-<ul>
-<li>Test Driver: invoke the SUT with test inputs.</li>
-<li>Stub/Mock: a dummy module that receives outgoing messages from the SUT
-
-<ul>
-<li>Do noghing</li>
-<li>Keep records</li>
-<li>Return hard-coded responses</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>Test-Driven Development (TDD)</h3>
-
-<ol>
-<li>Decide what behavior to implement.</li>
-<li>write test cases to test that behavior.</li>
-<li>run those test cases and watch them fail.</li>
-<li>implement the behavior.</li>
-<li>run the test case.</li>
-<li>keep modifying the code and rerunning test cases until they all pass.</li>
-<li>refactor code to improve quality.</li>
-<li>repeat the cycle for each small unit of behavior you want to implement.</li>
-</ol>
-
 
 		
-		
+		<a href="/blog/2012/11/13/se-in-nus-revision-note-2/" class="more-link">Read on &rarr;</a>
 	</div>
 
 
@@ -316,77 +203,13 @@ I find that most situations benefit from a mix of scripted and exploratory appro
 </span></li>
 </ul>
 </li>
-<li><strong>Regression Testing</strong>
-
-<ul>
-<li>The nature of software is such that even a tiny modification can result in a complete melt down of the whole system.</li>
-<li>Regression testing is more effective when it is down frequently, hence it&#8217;s more practical if it is automated.</li>
-</ul>
-</li>
+<li><strong>Regression Testing</strong></li>
 </ul>
 
-
-<h1>Lecture 2</h1>
-
-<h2>L2P1 - Good Code, Bad Code</h2>
-
-<ul>
-<li>Code Quality
-<span class='pullquote-right' data-pullquote='Premature optimization is the root of all evil in programming. &#8212; Knuth'>
-
-<ul>
-<li>Follow a standard</li>
-<li>Proper Naming</li>
-<li>Be obvious: 1.explicit type conversion; 2.parenthese/braces even when can skip; 3. &#8230;</li>
-<li>No misuse of syntax: 1.default option; 2.one variable for one purpose; 3. &#8230;</li>
-<li>Avoid error-prone practice</li>
-<li>Minimize global variables</li>
-<li>Avoid magic numbers</li>
-<li>Throw out garbage</li>
-<li>Minimize duplication</li>
-<li>Make comments unnecessary: Use comments to explain &#8216;why&#8217; and &#8216;what&#8217; aspect of the code rather than the &#8216;how&#8217; aspect.</li>
-<li>Be simple Premature optimization is the root of all evil in programming. &#8212; Knuth</li>
-<li>Code for humans</li>
-<li><strong>SLAP</strong>: Single Level of Abstraction Per Method</li>
-<li>Do not release temporary code
-</span></li>
-</ul>
-</li>
-</ul>
-
-
-<h2>L2P2 - Refactoring</h2>
-
-<ul>
-<li>Some commonly used refactorings:
-
-<ul>
-<li><a href="http://refactoring.com/catalog/consolidateConditionalExpression.html">Consolidate Conditional Expression</a></li>
-<li><a href="http://refactoring.com/catalog/decomposeConditional.html">Decompose Conditional</a></li>
-<li><a href="http://refactoring.com/catalog/inlineMethod.html">Inline Method</a></li>
-<li><a href="http://refactoring.com/catalog/introduceExplainingVariable.html">Introduce Explaining Variable</a></li>
-<li><a href="http://refactoring.com/catalog/removeDoubleNegative.html">Remove Double Negative</a></li>
-<li><a href="http://refactoring.com/catalog/replaceMagicNumberWithSymbolicConstant.html">Replace Magic Number with Symbolic Constant</a></li>
-<li><a href="http://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Replace Nested Conditional with Guard Clauses</a></li>
-<li><a href="http://refactoring.com/catalog/replaceParameterWithExplicitMethods.html">Replace Parameter with Explicit Methods</a></li>
-<li><a href="http://refactoring.com/catalog/reverseConditional.html">Reverse Conditional</a></li>
-<li><a href="http://refactoring.com/catalog/splitLoop.html">Split Loop</a></li>
-<li><a href="http://refactoring.com/catalog/splitTemporaryVariable.html">Split Temporary Variable</a></li>
-</ul>
-</li>
-</ul>
-
-
-<h2>L2P3 - RCS</h2>
-
-<ul>
-<li>Centralized RCS: SVN, CVS</li>
-<li>Distributed RCS: Mercurial, Git</li>
-</ul>
 
 
 		
-		
+		<a href="/blog/2012/11/13/se-in-nus-revision-note-1/" class="more-link">Read on &rarr;</a>
 	</div>
 
 

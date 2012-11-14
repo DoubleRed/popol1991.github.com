@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-11-13T23:46:26+08:00</updated>
+  <updated>2012-11-14T10:07:46+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -70,6 +70,9 @@
 
 
 <h2>L3P2 - Designing the Product</h2>
+
+<!--more-->
+
 
 <h3>Product Design</h3>
 
@@ -232,15 +235,16 @@ I find that most situations benefit from a mix of scripted and exploratory appro
 </span></li>
 </ul>
 </li>
-<li><strong>Regression Testing</strong>
-
-<ul>
-<li>The nature of software is such that even a tiny modification can result in a complete melt down of the whole system.</li>
-<li>Regression testing is more effective when it is down frequently, hence it&#8217;s more practical if it is automated.</li>
-</ul>
-</li>
+<li><strong>Regression Testing</strong></li>
 </ul>
 
+
+<!--more-->
+
+
+<pre><code>* The nature of software is such that even a tiny modification can result in a complete melt down of the whole system.
+* Regression testing is more effective when it is down frequently, hence it's more practical if it is automated.
+</code></pre>
 
 <h1>Lecture 2</h1>
 
