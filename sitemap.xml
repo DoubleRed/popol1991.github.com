@@ -18,14 +18,20 @@
     </url>
     <url>
         <loc>http://popol1991.github.com/blog/2012/11/13/se-in-nus-revision-note-2/</loc>
-        <lastmod>2012-11-14T10:07:21+08:00</lastmod>
+        <lastmod>2012-11-14T10:13:38+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://popol1991.github.com/blog/2012/11/15/functional-dependency-and-normalization/
+        </loc>
+        <lastmod>2012-11-15T10:25:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://popol1991.github.com/blog/archives/</loc>
-        <lastmod>2012-11-14T10:07:29+08:00</lastmod>
+        <lastmod>2012-11-15T10:25:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://popol1991.github.com/</loc>
-        <lastmod>2012-11-14T10:07:29+08:00</lastmod>
+        <lastmod>2012-11-15T10:25:21+08:00</lastmod>
     </url>
 </urlset>

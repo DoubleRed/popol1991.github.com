@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-11-14T10:07:46+08:00</updated>
+  <updated>2012-11-15T10:38:08+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Functional Dependency and Normalization]]></title>
+    <link href="http://popol1991.github.com/blog/2012/11/15/functional-dependency-and-normalization/"/>
+    <updated>2012-11-15T10:07:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/11/15/functional-dependency-and-normalization</id>
+    <content type="html"><![CDATA[<blockquote><p>It&#8217;s a material for myself in order to teach others what functional dependency and normalization are.</p></blockquote>
+
+
+<table>
+<thead>
+<tr>
+<th align="left">head1 </th>
+<th align="center"> head2 </th>
+<th align="right"> head3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">asdfsadf </td>
+<td align="center"> asdfasdfas </td>
+<td align="right"> asdfasdfa</td>
+</tr>
+</tbody>
+</table>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SE in NUS - Revision Note 2]]></title>
