@@ -7,7 +7,7 @@
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="It&#8217;s a material for myself in order to teach others what functional dependency and normalization are. head1 head2 head3 asdfsadf asdfasdfas &hellip;">
+	<meta name="description" content="It&#8217;s a reference used by myself to teach others what functional dependency and normalization are. Example id firstName lastName address &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -19,6 +19,22 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	
 </head>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
 
 <body>
 	<header id="header" class="inner"><h1><a href="/">Sound of Wind</a></h1>
@@ -75,25 +91,276 @@
     <article class="post">
 	<h1 class="title"><a href="/blog/2012/11/15/functional-dependency-and-normalization/">Functional Dependency and Normalization</a></h1>
 	<div class="entry-content">
-		<blockquote><p>It&#8217;s a material for myself in order to teach others what functional dependency and normalization are.</p></blockquote>
+		<p><em>It&#8217;s a reference used by myself to teach others what functional dependency and normalization are.</em></p>
+
+<h3>Example</h3>
+
+<table>
+<thead>
+<tr>
+<th align="center">id </th>
+<th align="center"> firstName </th>
+<th align="center"> lastName </th>
+<th align="center"> address </th>
+<th align="center"> department </th>
+<th align="center"> position </th>
+<th align="center"> salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1 </td>
+<td align="center"> Dewi </td>
+<td align="center"> Srijaya </td>
+<td align="center"> addr1 </td>
+<td align="center"> Toys </td>
+<td align="center"> Clerk </td>
+<td align="center"> 2000</td>
+</tr>
+<tr>
+<td align="center">2 </td>
+<td align="center"> Lzabel </td>
+<td align="center"> Leong </td>
+<td align="center"> addr2 </td>
+<td align="center"> Sports </td>
+<td align="center"> Trainee </td>
+<td align="center"> 1200</td>
+</tr>
+<tr>
+<td align="center">3 </td>
+<td align="center"> John </td>
+<td align="center"> Smith </td>
+<td align="center"> addr3 </td>
+<td align="center"> Toys </td>
+<td align="center"> Clerk </td>
+<td align="center"> 2000</td>
+</tr>
+<tr>
+<td align="center">4 </td>
+<td align="center"> Axel </td>
+<td align="center"> Bayer </td>
+<td align="center"> addr4 </td>
+<td align="center"> Sports </td>
+<td align="center"> Trainee </td>
+<td align="center"> 1200</td>
+</tr>
+<tr>
+<td align="center">5 </td>
+<td align="center"> Winnie </td>
+<td align="center"> Lee </td>
+<td align="center"> addr5 </td>
+<td align="center"> Sports </td>
+<td align="center"> Manager </td>
+<td align="center"> 2500</td>
+</tr>
+<tr>
+<td align="center">6 </td>
+<td align="center"> Sylvia </td>
+<td align="center"> Tok </td>
+<td align="center"> addr6 </td>
+<td align="center"> Toys </td>
+<td align="center"> Manager </td>
+<td align="center"> 2600</td>
+</tr>
+<tr>
+<td align="center">7 </td>
+<td align="center"> Eric </td>
+<td align="center"> Wei </td>
+<td align="center"> addr7 </td>
+<td align="center"> Toys </td>
+<td align="center"> Assistant Manager </td>
+<td align="center"> 2200</td>
+</tr>
+<tr>
+<td align="center">? </td>
+<td align="center"> ? </td>
+<td align="center"> ? </td>
+<td align="center"> ? </td>
+<td align="center"> ? </td>
+<td align="center"> Security Guard </td>
+<td align="center"> 1500</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The table above has many potential problems such <strong>Insertion anomaly</strong>, <strong>Update anomaly</strong> and lots of <strong>Redundant storage</strong>.  In order to eliminate these problems, we can decompose it into 2 tables below.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">id </th>
+<th align="center"> firstName </th>
+<th align="center"> lastName </th>
+<th align="center"> address </th>
+<th align="center"> department </th>
+<th align="center"> position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1 </td>
+<td align="center"> Dewi </td>
+<td align="center"> Srijaya </td>
+<td align="center"> addr1 </td>
+<td align="center"> Toys </td>
+<td align="center"> Clerk</td>
+</tr>
+<tr>
+<td align="center">2 </td>
+<td align="center"> Lzabel </td>
+<td align="center"> Leong </td>
+<td align="center"> addr2 </td>
+<td align="center"> Sports </td>
+<td align="center"> Trainee </td>
+</tr>
+<tr>
+<td align="center">3 </td>
+<td align="center"> John </td>
+<td align="center"> Smith </td>
+<td align="center"> addr3 </td>
+<td align="center"> Toys </td>
+<td align="center"> Clerk </td>
+</tr>
+<tr>
+<td align="center">4 </td>
+<td align="center"> Axel </td>
+<td align="center"> Bayer </td>
+<td align="center"> addr4 </td>
+<td align="center"> Sports </td>
+<td align="center"> Trainee </td>
+</tr>
+<tr>
+<td align="center">5 </td>
+<td align="center"> Winnie </td>
+<td align="center"> Lee </td>
+<td align="center"> addr5 </td>
+<td align="center"> Sports </td>
+<td align="center"> Manager </td>
+</tr>
+<tr>
+<td align="center">6 </td>
+<td align="center"> Sylvia </td>
+<td align="center"> Tok </td>
+<td align="center"> addr6 </td>
+<td align="center"> Toys </td>
+<td align="center"> Manager </td>
+</tr>
+<tr>
+<td align="center">7 </td>
+<td align="center"> Eric </td>
+<td align="center"> Wei </td>
+<td align="center"> addr7 </td>
+<td align="center"> Toys </td>
+<td align="center"> Assistant Manager </td>
+</tr>
+<tr>
+<td align="center">? </td>
+<td align="center"> ? </td>
+<td align="center"> ? </td>
+<td align="center"> ? </td>
+<td align="center"> ? </td>
+<td align="center"> Security Guard </td>
+</tr>
+</tbody>
+</table>
 
 
 <table>
 <thead>
 <tr>
-<th align="left">head1 </th>
-<th align="center"> head2 </th>
-<th align="right"> head3</th>
+<th align="center">position </th>
+<th align="center"> salary </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">asdfsadf </td>
-<td align="center"> asdfasdfas </td>
-<td align="right"> asdfasdfa</td>
+<td align="center">Clerk </td>
+<td align="center"> 2000</td>
+</tr>
+<tr>
+<td align="center">Trainee </td>
+<td align="center"> 1200</td>
+</tr>
+<tr>
+<td align="center">Manager </td>
+<td align="center"> 2500</td>
+</tr>
+<tr>
+<td align="center">Assistant Manager </td>
+<td align="center"> 2200</td>
+</tr>
+<tr>
+<td align="center">Security Guard </td>
+<td align="center"> 1500</td>
 </tr>
 </tbody>
 </table>
+
+
+<h3>Definitions</h3>
+
+<ul>
+<li>Trivial / Non-Trivial / Complete Non-Trivial FDs</li>
+<li>SuperKeys</li>
+<li>Candidate Keys: <strong>minimal</strong></li>
+<li>Primary Keys: one of candidate key</li>
+</ul>
+
+
+<h3>Reasonning</h3>
+
+<ul>
+<li>Armstrong&#8217;s Axioms
+$$
+\begin{align}
+\mbox{Refelxivity: } &amp; \mbox{ if } Y\subset X \mbox{ then } X\rightarrow Y
+\end{align}
+$$</li>
+</ul>
+
+
+<p>$$
+\begin{align}
+\mbox{Augmentation: } &amp; \mbox{ if } X\rightarrow Y \mbox{ then } X\cup Z\rightarrow Y\cup Z
+\end{align}
+$$</p>
+
+<p>$$
+\begin{align}
+\mbox{Transitivity: } &amp; \mbox{ if } X\rightarrow Y \mbox{ and } Y\rightarrow Z \mbox{ then } X\rightarrow Z
+\end{align}
+$$</p>
+
+<h3>Closure and Equivalence</h3>
+
+<ul>
+<li>For a set F of functional dependencies, we call the closure of $ F $, noted $ F+ $, the set of all functional dependencies that F implies.</li>
+<li>Two sets of functional dependencies $ F $ and $ G $ are equivalent if and only if $ F+=G+$</li>
+<li>Closure can be used for fingding keys</li>
+</ul>
+
+
+<h3>Minimal Cover</h3>
+
+<ul>
+<li>A set of dependencies F is minimal if and only if:
+
+<ol>
+<li>Every right-hand side is a single attribute</li>
+<li>For no functional dependency $ X\rightarrow A $ in $ F $ and proper subset $ Z $ of $ X $ is $ F- ( X\rightarrow A ) \cup ( Z\rightarrow A ) $ equivalent to $ F $ ( $ X $ cannot be simplified)</li>
+<li>For no function dependency $ X\rightarrow A $ in $ F $ is the set $ F- ( X\rightarrow A ) $ equivalent to $ F $ ( $ X\rightarrow A $ is not extraneous)</li>
+</ol>
+</li>
+<li>A set of functional dependencies $ F $ is a <strong>minimal cover</strong> of a set of funcitonal dependencies $ G $ if and only if
+
+<ul>
+<li>$ F $ is minimal</li>
+<li>$ F $ is equivalent to $ G $</li>
+<li>( $ F $ can be impied by $ G $, and $ F $ is minimal )</li>
+</ul>
+</li>
+</ul>
 
 
 		
@@ -429,19 +696,6 @@ sudo ln -f /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /u
 })(jQuery);
 </script> <!-- Delete or comment this line to disable Fancybox -->
 
-
-<script type="text/javascript">
-      var disqus_shortname = 'popol1991@gmail.com';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 
