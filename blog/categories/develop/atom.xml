@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: develop | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/develop/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2012-11-17T15:33:43+08:00</updated>
+  <id>http://popol1991.github.com/</id>
+  <author>
+    <name><![CDATA[popol]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to solve Liquid error: undefined method for #]]></title>
+    <link href="http://popol1991.github.com/blog/2012/11/17/how-to-resolve-liquid-error-undefined-method-for-number/"/>
+    <updated>2012-11-17T14:26:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/11/17/how-to-resolve-liquid-error-undefined-method-for-number</id>
+    <content type="html"><![CDATA[<p>I encounter this error when I was writing the last article and want to use jekyll-citation to generate reference in BibTeX syntax.</p>
+
+<p>After a long time searching, I found that this error is caused by Liquid version 2.3.  So I degrade liquid to 2.2.2 and solve it successfully.</p>
+
+<p>Only 2 steps are needed:</p>
+
+<p>1.delete the original Liquid</p>
+
+<p><code>
+gem uninstall liquid
+</code></p>
+
+<p>2.change the Gemfile in Octopress, explicitly use 2.2.2 as the version.  And notice that you should not explicitly point out a version of jekyll, otherwise it will depend on liquid 2.3.  The Gemfile after modification should look like this:</p>
+
+<p>``` ruby
+source “http://rubygems.org”</p>
+
+<p>group :development do
+  gem ‘rake’, ‘~&gt; 0.9.2’
+  gem ‘rack’, ‘~&gt; 1.4.1’
+  gem ‘jekyll’  #don’t write any verion
+  gem ‘kramdown’, ‘~&gt; 0.14.0’
+  gem ‘pygments.rb’, ‘~&gt; 0.2.12’
+  gem ‘RedCloth’, ‘~&gt; 4.2.9’
+  gem ‘haml’, ‘~&gt; 3.1.6’
+  gem ‘compass’, ‘~&gt; 0.12.1’
+  gem ‘rubypants’, ‘~&gt; 0.2.0’
+  gem ‘rb-fsevent’, ‘~&gt; 0.9’
+  gem ‘stringex’, ‘~&gt; 1.4.0’
+  gem ‘liquid’, ‘~&gt; 2.2.2’  #use 2.2.2 here
+  gem ‘bibtex-ruby’, ‘~&gt; 2.1.2’
+  gem ‘citeproc-ruby’, ‘~&gt;0.0.6’
+  gem ‘latex-decode’, ‘~&gt;0.0.12’
+end</p>
+
+<p>gem ‘sinatra’, ‘~&gt; 1.3.2’
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Factory Pattern]]></title>
+    <link href="http://popol1991.github.com/blog/2012/11/17/factory-pattern/"/>
+    <updated>2012-11-17T11:05:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/11/17/factory-pattern</id>
+    <content type="html"><![CDATA[<h2 id="background">Background</h2>
+<p>In this semester’s software engineering module, we developed a command-line-interface (CLI) based to-do list.  As a CLI software, it has many commands, each of which accepts different arguments and does different things.  So, intuitively, we have many command classes, and for convenience we unified the interface of all command classes and extracted an abstract class called Command out.  As a consequence we can manipulate them in the same way.</p>
+
+<p>After getting user input from command line system, the program has to decide which command is called by user and create a instance of that command class.  In this case, Factory Pattern comes to mind.  Here’s how we want to use the factory:</p>
+
+<p><code>java
+Command cmd = commandFactory.createCommand(userInput);
+cmd.execute();
+showInCommandLine(cmd.getFeedback());
+</code></p>
+
+<h2 id="intent">Intent</h2>
+<ul>
+  <li>creates objects without exposing the instantiation logic to the client ( client is not aware of which specific concrete class is used )</li>
+  <li>refers to newly created object through a common interface</li>
+</ul>
+
+<h2 id="class-diagram">Class Diagram</h2>
+<p><img src="/images/posts/FactoryPattern.png" width="500"></p>
+
+<!-- more -->
+
+<h2 id="implementation">Implementation</h2>
+<p>At the beginning, we implemented it in the simplest approach – a bit switch statement in factory.</p>
+
+<p><code>java
+public class CommandFactory {
+	public Command createCommand(String userInput) {
+		switch (userInput) {
+			case CMD1 : return new CommandOne();
+			case CMD2 : return new CommandTwo();
+			...
+			default : return new InvalidCommand();
+			// instead of returning a null value,
+			// here we return a special case object[1]
+		}
+	}
+}
+</code></p>
+
+<p>However, the problem here is that once we want to provide a new command for users, we have to modify the switch arms in <code>CommandFactory</code>.  It violates the Open-Close Principle.  Subclassing the factory class is a solution, but that might lead to more modification in other code since a factory is often implemented as a singleton.</p>
+
+<p>To solve this problem, we need to decouple the <code>CommandFactory</code> from any concrete command classes.  In other word, the <code>CommandFactory</code> should not be aware of what kind of command it is creating.  Because JAVA is our develop language, I thought reflection can be used.</p>
+
+<p>Reflection is a feature provided by Java and .NET, it allows us creating a class by name of the class.  Given this feature, we have a configuration file that map each user input command to a specific command class with which the Factory can create class without knowing what it is.  Now the <code>CommandFactory</code> looks like this:</p>
+
+<p>``` java
+private static Map&lt;String, String&gt; cmdMap;</p>
+
+<p>public static initMap() {
+	// initialize the mapping from user input to command classes
+}</p>
+
+<p>public Command createCommand(String input) {
+	Command command;
+	String commandClassType = cmdMap.get(input);
+	if (commandClassType == null) {
+		command = new InvalidCommand();
+	} else {
+		try {
+			Class<command /> commandClass = (Class<command />) Class
+					.forName(commandClassType);
+			command = (Command) commandClass.getConstructor(String.class)
+					.newInstance(input);
+		} catch (Exception e) {
+			command = new InvalidCommand();
+		}
+	}
+	return command;
+}
+```</p>
+
+<h2 id="further">Further</h2>
+<p>The implementation using reflection is the submit version of our project.  However, after days of thinking, I think the implementation still has some problems:</p>
+
+<ol>
+  <li>still need to modify the configuration file if we want to add new commands</li>
+  <li>using reflection could make the software very slow</li>
+  <li>even it’s not slow, not all language has reflection</li>
+</ol>
+
+<p>Therefore, after reading some materials, here’s a more elegant implementation that perfectly follows the Open-Close Principle and won’t slower the system, using self registration without reflection.</p>
+
+<p>First, since we don’t want the factory know what class it is creating, and we don’t want to have a configuration file either, there has to be someone decide what should be created.  Second, in order to eliminating reflection, someone need to be responsible for creating a concrete class.  In this case, the concrete class itself is the best candidate, isn’t it?  </p>
+
+<p>For the first reason, each concrete command should register itself.  For the second reason, we need to add a new interface to all command.  Now the command interface and concrete command class should look like this:</p>
+
+<p>``` java
+abstract class Command {
+	public abstract Command createCommand();
+	…
+}</p>
+
+<p>class OneCommand extends Command {</p>
+
+<pre><code>static {
+	CommandFactory.getInstance().register("CMD1", new OneCommand());
+}
+
+public OneCommand createCommand() {
+	return new OneCommand();
+}
+... } ```
+</code></pre>
+
+<p>Provided these convenience, the <code>CommandFactory</code> becomes much easier:</p>
+
+<p>``` java
+class CommandFactory {
+	public void register(String commandID, Command cmd) {
+		cmdMap.put(commandID, cmd);
+	}</p>
+
+<pre><code>public Command createCommand(String cmdID) {
+	return ((Command) cmdMap.get(cmdID)).createCommand();
+} } ```
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<p>[1]
+Martin, R. C. (2008). <i>Clean Code: A Handbook of Agile Software Craftsmanship</i> (1 ed.). Upper Saddle River, NJ, USA: Prentice Hall PTR.</p>
+
+<p>[2]
+oodesign Factory Pattern. Retrieved from http://www.oodesign.com/factory-pattern.html</p>
+
+<p>[2]
+Saurabh_Saxenaamrita nevrekar. (2009, June). Exploring Factory Pattern. Retrieved from http://www.codeproject.com/Articles/37547/Exploring-Factory-Pattern</p>
+]]></content>
+  </entry>
+  
+</feed>

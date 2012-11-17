@@ -7,7 +7,7 @@
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="It&#8217;s a reference used by myself to teach others what functional dependency and normalization are. Example id firstName lastName address &hellip;">
+	<meta name="description" content="I encounter this error when I was writing the last article and want to use jekyll-citation to generate reference in BibTeX syntax. After a long time &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -89,279 +89,414 @@ MathJax.Hub.Config({
 
 
     <article class="post">
+	<h1 class="title"><a href="/blog/2012/11/17/how-to-resolve-liquid-error-undefined-method-for-number/">How to Solve Liquid Error: Undefined Method for #</a></h1>
+	<div class="entry-content">
+		<p>I encounter this error when I was writing the last article and want to use jekyll-citation to generate reference in BibTeX syntax.</p>
+
+<p>After a long time searching, I found that this error is caused by Liquid version 2.3.  So I degrade liquid to 2.2.2 and solve it successfully.</p>
+
+<p>Only 2 steps are needed:</p>
+
+<p>1.delete the original Liquid</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">gem uninstall liquid</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>2.change the Gemfile in Octopress, explicitly use 2.2.2 as the version.  And notice that you should not explicitly point out a version of jekyll, otherwise it will depend on liquid 2.3.  The Gemfile after modification should look like this:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="n">source</span> <span class="s2">&quot;http://rubygems.org&quot;</span>
+</span><span class="line">
+</span><span class="line"><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;rake&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.9.2&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;rack&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.4.1&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;jekyll&#39;</span>  <span class="c1">#don&#39;t write any verion</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;kramdown&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.14.0&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;pygments.rb&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.2.12&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;RedCloth&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 4.2.9&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;haml&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 3.1.6&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;compass&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.12.1&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;rubypants&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.2.0&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;rb-fsevent&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.9&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;stringex&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.4.0&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;liquid&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 2.2.2&#39;</span>  <span class="c1">#use 2.2.2 here</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;bibtex-ruby&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 2.1.2&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;citeproc-ruby&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt;0.0.6&#39;</span>
+</span><span class="line">  <span class="n">gem</span> <span class="s1">&#39;latex-decode&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt;0.0.12&#39;</span>
+</span><span class="line"><span class="k">end</span>
+</span><span class="line">
+</span><span class="line"><span class="n">gem</span> <span class="s1">&#39;sinatra&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.3.2&#39;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-17T14:26:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/develop/'>develop</a>
+
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
+	<h1 class="title"><a href="/blog/2012/11/17/factory-pattern/">Factory Pattern</a></h1>
+	<div class="entry-content">
+		<h2 id="background">Background</h2>
+<p>In this semester’s software engineering module, we developed a command-line-interface (CLI) based to-do list.  As a CLI software, it has many commands, each of which accepts different arguments and does different things.  So, intuitively, we have many command classes, and for convenience we unified the interface of all command classes and extracted an abstract class called Command out.  As a consequence we can manipulate them in the same way.</p>
+
+<p>After getting user input from command line system, the program has to decide which command is called by user and create a instance of that command class.  In this case, Factory Pattern comes to mind.  Here’s how we want to use the factory:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">Command</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">commandFactory</span><span class="o">.</span><span class="na">createCommand</span><span class="o">(</span><span class="n">userInput</span><span class="o">);</span>
+</span><span class="line"><span class="n">cmd</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+</span><span class="line"><span class="n">showInCommandLine</span><span class="o">(</span><span class="n">cmd</span><span class="o">.</span><span class="na">getFeedback</span><span class="o">());</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="intent">Intent</h2>
+<ul>
+  <li>creates objects without exposing the instantiation logic to the client ( client is not aware of which specific concrete class is used )</li>
+  <li>refers to newly created object through a common interface</li>
+</ul>
+
+<h2 id="class-diagram">Class Diagram</h2>
+<p><img src="/images/posts/FactoryPattern.png" width="500" /></p>
+
+
+		
+		<a href="/blog/2012/11/17/factory-pattern/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-17T11:05:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/develop/'>develop</a>
+
+
+</div>
+	
+</div></article>
+
+
+    <article class="post">
 	<h1 class="title"><a href="/blog/2012/11/15/functional-dependency-and-normalization/">Functional Dependency and Normalization</a></h1>
 	<div class="entry-content">
-		<p><em>It&#8217;s a reference used by myself to teach others what functional dependency and normalization are.</em></p>
+		<p><em>It’s a reference used by myself to teach others what functional dependency and normalization are.</em></p>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <table>
-<thead>
-<tr>
-<th align="center">id </th>
-<th align="center"> firstName </th>
-<th align="center"> lastName </th>
-<th align="center"> address </th>
-<th align="center"> department </th>
-<th align="center"> position </th>
-<th align="center"> salary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">1 </td>
-<td align="center"> Dewi </td>
-<td align="center"> Srijaya </td>
-<td align="center"> addr1 </td>
-<td align="center"> Toys </td>
-<td align="center"> Clerk </td>
-<td align="center"> 2000</td>
-</tr>
-<tr>
-<td align="center">2 </td>
-<td align="center"> Lzabel </td>
-<td align="center"> Leong </td>
-<td align="center"> addr2 </td>
-<td align="center"> Sports </td>
-<td align="center"> Trainee </td>
-<td align="center"> 1200</td>
-</tr>
-<tr>
-<td align="center">3 </td>
-<td align="center"> John </td>
-<td align="center"> Smith </td>
-<td align="center"> addr3 </td>
-<td align="center"> Toys </td>
-<td align="center"> Clerk </td>
-<td align="center"> 2000</td>
-</tr>
-<tr>
-<td align="center">4 </td>
-<td align="center"> Axel </td>
-<td align="center"> Bayer </td>
-<td align="center"> addr4 </td>
-<td align="center"> Sports </td>
-<td align="center"> Trainee </td>
-<td align="center"> 1200</td>
-</tr>
-<tr>
-<td align="center">5 </td>
-<td align="center"> Winnie </td>
-<td align="center"> Lee </td>
-<td align="center"> addr5 </td>
-<td align="center"> Sports </td>
-<td align="center"> Manager </td>
-<td align="center"> 2500</td>
-</tr>
-<tr>
-<td align="center">6 </td>
-<td align="center"> Sylvia </td>
-<td align="center"> Tok </td>
-<td align="center"> addr6 </td>
-<td align="center"> Toys </td>
-<td align="center"> Manager </td>
-<td align="center"> 2600</td>
-</tr>
-<tr>
-<td align="center">7 </td>
-<td align="center"> Eric </td>
-<td align="center"> Wei </td>
-<td align="center"> addr7 </td>
-<td align="center"> Toys </td>
-<td align="center"> Assistant Manager </td>
-<td align="center"> 2200</td>
-</tr>
-<tr>
-<td align="center">? </td>
-<td align="center"> ? </td>
-<td align="center"> ? </td>
-<td align="center"> ? </td>
-<td align="center"> ? </td>
-<td align="center"> Security Guard </td>
-<td align="center"> 1500</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th style="text-align: center">id</th>
+      <th style="text-align: center">firstName</th>
+      <th style="text-align: center">lastName</th>
+      <th style="text-align: center">address</th>
+      <th style="text-align: center">department</th>
+      <th style="text-align: center">position</th>
+      <th style="text-align: center">salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Dewi</td>
+      <td style="text-align: center">Srijaya</td>
+      <td style="text-align: center">addr1</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Lzabel</td>
+      <td style="text-align: center">Leong</td>
+      <td style="text-align: center">addr2</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">John</td>
+      <td style="text-align: center">Smith</td>
+      <td style="text-align: center">addr3</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Axel</td>
+      <td style="text-align: center">Bayer</td>
+      <td style="text-align: center">addr4</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Winnie</td>
+      <td style="text-align: center">Lee</td>
+      <td style="text-align: center">addr5</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Manager</td>
+      <td style="text-align: center">2500</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">Sylvia</td>
+      <td style="text-align: center">Tok</td>
+      <td style="text-align: center">addr6</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Manager</td>
+      <td style="text-align: center">2600</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">Eric</td>
+      <td style="text-align: center">Wei</td>
+      <td style="text-align: center">addr7</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Assistant Manager</td>
+      <td style="text-align: center">2200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">Security Guard</td>
+      <td style="text-align: center">1500</td>
+    </tr>
+  </tbody>
 </table>
-
 
 <p>The table above has many potential problems such <strong>Insertion anomaly</strong>, <strong>Update anomaly</strong> and lots of <strong>Redundant storage</strong>.  In order to eliminate these problems, we can decompose it into 2 tables below.</p>
 
 <table>
-<thead>
-<tr>
-<th align="center">id </th>
-<th align="center"> firstName </th>
-<th align="center"> lastName </th>
-<th align="center"> address </th>
-<th align="center"> department </th>
-<th align="center"> position</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">1 </td>
-<td align="center"> Dewi </td>
-<td align="center"> Srijaya </td>
-<td align="center"> addr1 </td>
-<td align="center"> Toys </td>
-<td align="center"> Clerk</td>
-</tr>
-<tr>
-<td align="center">2 </td>
-<td align="center"> Lzabel </td>
-<td align="center"> Leong </td>
-<td align="center"> addr2 </td>
-<td align="center"> Sports </td>
-<td align="center"> Trainee </td>
-</tr>
-<tr>
-<td align="center">3 </td>
-<td align="center"> John </td>
-<td align="center"> Smith </td>
-<td align="center"> addr3 </td>
-<td align="center"> Toys </td>
-<td align="center"> Clerk </td>
-</tr>
-<tr>
-<td align="center">4 </td>
-<td align="center"> Axel </td>
-<td align="center"> Bayer </td>
-<td align="center"> addr4 </td>
-<td align="center"> Sports </td>
-<td align="center"> Trainee </td>
-</tr>
-<tr>
-<td align="center">5 </td>
-<td align="center"> Winnie </td>
-<td align="center"> Lee </td>
-<td align="center"> addr5 </td>
-<td align="center"> Sports </td>
-<td align="center"> Manager </td>
-</tr>
-<tr>
-<td align="center">6 </td>
-<td align="center"> Sylvia </td>
-<td align="center"> Tok </td>
-<td align="center"> addr6 </td>
-<td align="center"> Toys </td>
-<td align="center"> Manager </td>
-</tr>
-<tr>
-<td align="center">7 </td>
-<td align="center"> Eric </td>
-<td align="center"> Wei </td>
-<td align="center"> addr7 </td>
-<td align="center"> Toys </td>
-<td align="center"> Assistant Manager </td>
-</tr>
-<tr>
-<td align="center">? </td>
-<td align="center"> ? </td>
-<td align="center"> ? </td>
-<td align="center"> ? </td>
-<td align="center"> ? </td>
-<td align="center"> Security Guard </td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th style="text-align: center">id</th>
+      <th style="text-align: center">firstName</th>
+      <th style="text-align: center">lastName</th>
+      <th style="text-align: center">address</th>
+      <th style="text-align: center">department</th>
+      <th style="text-align: center">position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Dewi</td>
+      <td style="text-align: center">Srijaya</td>
+      <td style="text-align: center">addr1</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Lzabel</td>
+      <td style="text-align: center">Leong</td>
+      <td style="text-align: center">addr2</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">John</td>
+      <td style="text-align: center">Smith</td>
+      <td style="text-align: center">addr3</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Axel</td>
+      <td style="text-align: center">Bayer</td>
+      <td style="text-align: center">addr4</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Winnie</td>
+      <td style="text-align: center">Lee</td>
+      <td style="text-align: center">addr5</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Manager</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">Sylvia</td>
+      <td style="text-align: center">Tok</td>
+      <td style="text-align: center">addr6</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Manager</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">Eric</td>
+      <td style="text-align: center">Wei</td>
+      <td style="text-align: center">addr7</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Assistant Manager</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">Security Guard</td>
+    </tr>
+  </tbody>
 </table>
-
 
 <table>
-<thead>
-<tr>
-<th align="center">position </th>
-<th align="center"> salary </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Clerk </td>
-<td align="center"> 2000</td>
-</tr>
-<tr>
-<td align="center">Trainee </td>
-<td align="center"> 1200</td>
-</tr>
-<tr>
-<td align="center">Manager </td>
-<td align="center"> 2500</td>
-</tr>
-<tr>
-<td align="center">Assistant Manager </td>
-<td align="center"> 2200</td>
-</tr>
-<tr>
-<td align="center">Security Guard </td>
-<td align="center"> 1500</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th style="text-align: center">position</th>
+      <th style="text-align: center">salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Clerk</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Trainee</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Manager</td>
+      <td style="text-align: center">2500</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Assistant Manager</td>
+      <td style="text-align: center">2200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Security Guard</td>
+      <td style="text-align: center">1500</td>
+    </tr>
+  </tbody>
 </table>
 
-
-<h3>Definitions</h3>
-
+<h3 id="definitions">Definitions</h3>
 <ul>
-<li>Trivial / Non-Trivial / Complete Non-Trivial FDs</li>
-<li>SuperKeys</li>
-<li>Candidate Keys: <strong>minimal</strong></li>
-<li>Primary Keys: one of candidate key</li>
+  <li>Trivial / Non-Trivial / Complete Non-Trivial FDs</li>
+  <li>SuperKeys</li>
+  <li>Candidate Keys: <strong>minimal</strong></li>
+  <li>Primary Keys: one of candidate key</li>
 </ul>
 
-
-<h3>Reasonning</h3>
-
+<h3 id="reasonning">Reasonning</h3>
 <ul>
-<li>Armstrong&#8217;s Axioms
+  <li>Armstrong’s Axioms
 $$
 \begin{align}
-\mbox{Refelxivity: } &amp; \mbox{ if } Y\subset X \mbox{ then } X\rightarrow Y
+\mbox{Refelxivity: } &amp; \mbox{ if } Y\subset X \mbox{ then } X\rightarrow Y 
 \end{align}
 $$</li>
 </ul>
 
+<script type="math/tex; mode=display">% <![CDATA[
 
-<p>$$
 \begin{align}
-\mbox{Augmentation: } &amp; \mbox{ if } X\rightarrow Y \mbox{ then } X\cup Z\rightarrow Y\cup Z
+\mbox{Augmentation: } & \mbox{ if } X\rightarrow Y \mbox{ then } X\cup Z\rightarrow Y\cup Z 
 \end{align}
-$$</p>
+ %]]></script>
 
-<p>$$
+<script type="math/tex; mode=display">% <![CDATA[
+
 \begin{align}
-\mbox{Transitivity: } &amp; \mbox{ if } X\rightarrow Y \mbox{ and } Y\rightarrow Z \mbox{ then } X\rightarrow Z
+\mbox{Transitivity: } & \mbox{ if } X\rightarrow Y \mbox{ and } Y\rightarrow Z \mbox{ then } X\rightarrow Z 
 \end{align}
-$$</p>
+ %]]></script>
 
-<h3>Closure and Equivalence</h3>
-
+<h3 id="closure-and-equivalence">Closure and Equivalence</h3>
 <ul>
-<li>For a set F of functional dependencies, we call the closure of $ F $, noted $ F+ $, the set of all functional dependencies that F implies.</li>
-<li>Two sets of functional dependencies $ F $ and $ G $ are equivalent if and only if $ F+=G+$</li>
-<li>Closure can be used for fingding keys</li>
+  <li>For a set F of functional dependencies, we call the closure of $ F $, noted $ F+ $, the set of all functional dependencies that F implies.</li>
+  <li>Two sets of functional dependencies $ F $ and $ G $ are equivalent if and only if $ F+=G+$</li>
+  <li>Closure can be used for fingding keys</li>
 </ul>
 
-
-<h3>Minimal Cover</h3>
-
+<h3 id="minimal-cover">Minimal Cover</h3>
 <ul>
-<li>A set of dependencies F is minimal if and only if:
-
-<ol>
-<li>Every right-hand side is a single attribute</li>
-<li>For no functional dependency $ X\rightarrow A $ in $ F $ and proper subset $ Z $ of $ X $ is $ F- ( X\rightarrow A ) \cup ( Z\rightarrow A ) $ equivalent to $ F $ ( $ X $ cannot be simplified)</li>
-<li>For no function dependency $ X\rightarrow A $ in $ F $ is the set $ F- ( X\rightarrow A ) $ equivalent to $ F $ ( $ X\rightarrow A $ is not extraneous)</li>
-</ol>
-</li>
-<li>A set of functional dependencies $ F $ is a <strong>minimal cover</strong> of a set of funcitonal dependencies $ G $ if and only if
-
-<ul>
-<li>$ F $ is minimal</li>
-<li>$ F $ is equivalent to $ G $</li>
-<li>( $ F $ can be impied by $ G $, and $ F $ is minimal )</li>
+  <li>A set of dependencies F is minimal if and only if:
+    <ol>
+      <li>Every right-hand side is a single attribute</li>
+      <li>For no functional dependency $ X\rightarrow A $ in $ F $ and proper subset $ Z $ of $ X $ is $ F- ( X\rightarrow A ) \cup ( Z\rightarrow A ) $ equivalent to $ F $ ( $ X $ cannot be simplified)</li>
+      <li>For no function dependency $ X\rightarrow A $ in $ F $ is the set $ F- ( X\rightarrow A ) $ equivalent to $ F $ ( $ X\rightarrow A $ is not extraneous)</li>
+    </ol>
+  </li>
+  <li>A set of functional dependencies $ F $ is a <strong>minimal cover</strong> of a set of funcitonal dependencies $ G $ if and only if
+    <ul>
+      <li>$ F $ is minimal</li>
+      <li>$ F $ is equivalent to $ G $</li>
+      <li>( $ F $ can be impied by $ G $, and $ F $ is minimal )</li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
-
 
 		
 		
@@ -392,59 +527,49 @@ $$</p>
     <article class="post">
 	<h1 class="title"><a href="/blog/2012/11/13/se-in-nus-revision-note-2/">SE in NUS - Revision Note 2</a></h1>
 	<div class="entry-content">
-		<h1>Lecture 3</h1>
+		<h1 id="lecture-3">Lecture 3</h1>
 
-<h2>L3P1 - Figuring out Requirements</h2>
-
+<h2 id="l3p1---figuring-out-requirements">L3P1 - Figuring out Requirements</h2>
 <ul>
-<li>Functional requirements specify what the system should do.</li>
-<li>Non-functional requirements specify the constraints under which system gets developed and operated.</li>
+  <li>Functional requirements specify what the system should do.</li>
+  <li>Non-functional requirements specify the constraints under which system gets developed and operated.</li>
 </ul>
 
-
-<h3>Establishing Requirements</h3>
-
+<h3 id="establishing-requirements">Establishing Requirements</h3>
 <ul>
-<li>Commonly used techniques to gather requirements (Note: All these techniques are also useful for investors or programmers themselves to decide whether the program is desirable to be implemented)
-
-<ul>
-<li>Brainstorming</li>
-<li>User surveys</li>
-<li>Observation</li>
-<li>Interviews</li>
-<li>Focus groups</li>
-<li>Prototyping (Note: prototype is important for incremental programming, especially agile development.  It is very useful for further specifying the requirements because hardly no one could clearly know what they want until they really use the program.  On the other hand, for developers, especially student programmer, it could be very encouraging that the program is always runnable.)</li>
-<li>Analyzing similar products and documentation</li>
-</ul>
-</li>
+  <li>Commonly used techniques to gather requirements (Note: All these techniques are also useful for investors or programmers themselves to decide whether the program is desirable to be implemented)
+    <ul>
+      <li>Brainstorming</li>
+      <li>User surveys</li>
+      <li>Observation</li>
+      <li>Interviews</li>
+      <li>Focus groups</li>
+      <li>Prototyping (Note: prototype is important for incremental programming, especially agile development.  It is very useful for further specifying the requirements because hardly no one could clearly know what they want until they really use the program.  On the other hand, for developers, especially student programmer, it could be very encouraging that the program is always runnable.)</li>
+      <li>Analyzing similar products and documentation</li>
+    </ul>
+  </li>
 </ul>
 
-
-<h3>Specifying Requirements</h3>
-
+<h3 id="specifying-requirements">Specifying Requirements</h3>
 <ul>
-<li>Some tools and techniques that can be used to specify requirements
-
-<ul>
-<li>Textual descriptions</li>
-<li>Feature list</li>
-<li>User stories
-<img class="right" src="http://popol1991.github.com/images/posts/use%20case.png" width="200"></li>
-<li>Use Case: A use case describes an interaction between the user and the system for <strong>a specific functionality</strong> of the system.
-
-<ul>
-<li>Main Success Scenario (MSS) describes the most straightforward interaction for a given use case, which assumes nothing goes wrong.</li>
-<li>Extensions, given below the MSS, are exceptional flow or alternative flow of events.</li>
-</ul>
-</li>
-<li>Glossary: ensure all stakeholders have a common understanding of the noteworthy terms, abbreviation, acronyms etc.</li>
-</ul>
-</li>
+  <li>Some tools and techniques that can be used to specify requirements
+    <ul>
+      <li>Textual descriptions</li>
+      <li>Feature list</li>
+      <li>User stories
+  <img class="right" src="http://popol1991.github.com/images/posts/use%20case.png" width="200" /></li>
+      <li>Use Case: A use case describes an interaction between the user and the system for <strong>a specific functionality</strong> of the system.
+        <ul>
+          <li>Main Success Scenario (MSS) describes the most straightforward interaction for a given use case, which assumes nothing goes wrong.</li>
+          <li>Extensions, given below the MSS, are exceptional flow or alternative flow of events.</li>
+        </ul>
+      </li>
+      <li>Glossary: ensure all stakeholders have a common understanding of the noteworthy terms, abbreviation, acronyms etc.</li>
+    </ul>
+  </li>
 </ul>
 
-
-<h2>L3P2 - Designing the Product</h2>
-
+<h2 id="l3p2---designing-the-product">L3P2 - Designing the Product</h2>
 
 		
 		<a href="/blog/2012/11/13/se-in-nus-revision-note-2/" class="more-link">Read on &rarr;</a>
@@ -479,50 +604,29 @@ $$</p>
     <article class="post">
 	<h1 class="title"><a href="/blog/2012/11/13/se-in-nus-revision-note-1/">SE in NUS - Revision Note 1</a></h1>
 	<div class="entry-content">
-		<h1>Lecture 1</h1>
+		<h1 id="lecture-1">Lecture 1</h1>
+<p>## L1P1 - Software Engineering Rocks
+### Joys of the Craft
+1. Sheer joy of making things.
+2. Making things that are useful to other people.
+3. Fascination of fashioning complex puzzle-like objects of interlocking moving parts and watching them work in subtle cycles, playing out the consequences of principles built in from the beginning.
+4. Always learning, which springs from the nonrepeating nature of the task.
+5. Delight of working in such a tractable medium.</p>
 
-<h2>L1P1 - Software Engineering Rocks</h2>
-
-<h3>Joys of the Craft</h3>
-
+<h3 id="woes-of-the-craft">Woes of the Craft</h3>
 <ol>
-<li>Sheer joy of making things.</li>
-<li>Making things that are useful to other people.</li>
-<li>Fascination of fashioning complex puzzle-like objects of interlocking moving parts and watching them work in subtle cycles, playing out the consequences of principles built in from the beginning.</li>
-<li>Always learning, which springs from the nonrepeating nature of the task.</li>
-<li>Delight of working in such a tractable medium.</li>
+  <li>One must perform perfectly.</li>
+  <li>Other people set one’s objectives, provide one’s resources, and furnish one’s information.</li>
+  <li>Dependence upon others.</li>
+  <li>Designing grand concepts is fun; finding nitty little bugs is just work.</li>
+  <li>product obsolete upon/before completion.</li>
 </ol>
 
-
-<h3>Woes of the Craft</h3>
-
-<ol>
-<li>One must perform perfectly.</li>
-<li>Other people set one&#8217;s objectives, provide one&#8217;s resources, and furnish one&#8217;s information.</li>
-<li>Dependence upon others.</li>
-<li>Designing grand concepts is fun; finding nitty little bugs is just work.</li>
-<li>product obsolete upon/before completion.</li>
-</ol>
-
-
-<h2>L1P3 - Preventing Regression</h2>
-
+<h2 id="l1p3---preventing-regression">L1P3 - Preventing Regression</h2>
 <ul>
-<li><strong>SUT</strong>: Software Under Test
-<span class='pullquote-right' data-pullquote='I find that most situations benefit from a mix of scripted and exploratory approaches. &#8212;James Bach'></li>
-<li><strong>Scripted v.s. Exploratory Testing</strong>
-
-<ul>
-<li><strong>Exploratory</strong>: The next test case is based on what happened to the previous test cases; the success of exploratory testing depends on the tester&#8217;s prior experience and intuition.</li>
-<li><strong>Scripted</strong>: predetermined set of test cases.
-I find that most situations benefit from a mix of scripted and exploratory approaches. &#8212;James Bach
-</span></li>
-</ul>
-</li>
-<li><strong>Regression Testing</strong></li>
-</ul>
-
-
+  <li><strong>SUT</strong>: Software Under Test
+Surround your pullquote like this {“ text to be quoted “}</li>
+  <li><strong>Regression Testing</strong>
 
 		
 		<a href="/blog/2012/11/13/se-in-nus-revision-note-1/" class="more-link">Read on &rarr;</a>
@@ -557,9 +661,9 @@ I find that most situations benefit from a mix of scripted and exploratory appro
     <article class="post">
 	<h1 class="title"><a href="/blog/2012/10/16/how-to-manage-my-reading-list/">How to Manage My Web Reading List</a></h1>
 	<div class="entry-content">
-		<p>If you are using iOS and OS X devices, it would be really convenient and even elegent to manage your web reading list using the &#8216;read list&#8217; function of Safari and the automatically synchronization among multiple devices using iCloud.<br/>
-However, after finish reading a web page, I want to archive them in some place from where tagging and searching could be easy.  Gmail comes to mind.<br/>
-So I created a account for archive web pages, and every time I finish reading a page, I mail it out to the account using the &#8216;share&#8217; function of iDevices.</p>
+		<p>If you are using iOS and OS X devices, it would be really convenient and even elegent to manage your web reading list using the ‘read list’ function of Safari and the automatically synchronization among multiple devices using iCloud.<br />
+However, after finish reading a web page, I want to archive them in some place from where tagging and searching could be easy.  Gmail comes to mind.<br />
+So I created a account for archive web pages, and every time I finish reading a page, I mail it out to the account using the ‘share’ function of iDevices.</p>
 
 		
 		
@@ -597,13 +701,13 @@ So I created a account for archive web pages, and every time I finish reading a 
 		<p>上学期的成绩单出来，听闻我两年的总排名竟然进步了。考虑到上学期我的状态，以及这两个月在NUS的的所见所闻，真是难免思考:我们到底差在哪了？</p>
 
 <p>背景是这样的。上学期，从过年一直到考期前夕，我一直在苦苦地准备GRE。有蔷哥正哥以及教五302的所有自习同学为证，每天除了上课我就坐在那个窗边的位置，至少得学上8个小时的英语，从白雪纷飞看到春暖花开。上课还是一如既往的水着，作业基本上都是要收的前一天晚上熬夜写完的，要做项目的OO课也是抱了队友的大腿。(说到这里，我必须感谢一下我那两个室友！考G期间加上之后搬宿舍出来交流麻烦了他们好多事情，都没来得及请他们吃饭我就出来了，回去必须好好款待一下。)就这样到了期末抱佛脚还算是考出了不错的成绩，排名竟然还进了步。这真的不是在炫耀，也不是说我排名高就多牛X了，但就是有点好奇：我亲爱的不考G也不搞ACM也不钻研技术也不泡妞也不泡吧也不打球的同学们，你们平时都在干什么呢？
-然后最近的状况，来NUS两个月，有两个同学的例子一定要分享一下。<br/>
-第一个是Software Engineering的队友，一个华裔马来籍新加坡人，叫WeiKeng。软件工程这种课，团队合作及其重要，组会、在线讨论什么是家常便饭。别的地方不知道，反正我以前接触过的这些东西都是一片混乱，没有要讨论的点，想到什么说什么；没有时间概念，经常东拉西扯；没有全员参与，总有那么几个人保持沉默。但在这里我们第一次开会我就惊了，WeiKeng在Google Doc上写下了要参考的内容和详细agenda，这些可都是没有规定谁是team leader，没有分配任务之前他自发做的。之后CS3246的项目也和他一组，人家早早完成了自己的任务，我却一拖再拖最后还是没能完成，搞得非常不好意思。另外，除了负责人和组织能力外，作为一个刚刚上大二的学生，WeiKeng的编码能力也不弱，起码比我暑假实习前要强很多，而且人家成绩也很好&#8230;后来了解到他服兵役的时候被分到sergent组学习管理和指挥，可能很多能力都得益于这两年的军事训练吧。
-另外一个人是Lucie，从曼彻斯特大学来的交换生，读商科的硕士。话说我某天闲着没事儿在facebook上说想找一个native English speaker练习口语，作为交换我可以教他中文。本来我是只想找一个人一对一的，结果这个帖子一发不可收拾，最后搞成了一个有40多人的大组，里面基本是一半中国人想联系口语一半外国人想学中文。出现这种状况我脑袋顿时就大了，40个人可怎么管啊，没有时间啊&#8230;由于Lucie是第一个在脸书上回复我的人，第二天我们就一起出来商量这么多人要怎么组织，以及英语中文课上都要讲写什么。当时我想，教中文还不简单么，外国人中文都不咋地，随口教教他们拼音啥的就好了。于是我就两手空空的去跟Lucie讨论，结果又惊了&#8230;她在电脑上写了很详细的分组安排，英语课的内容，十几号大小的英文在word里写了有四五页吧&#8230;总之从那以后这个组名副其实的就是她在管，我纯抱大腿了&#8230;</p>
+然后最近的状况，来NUS两个月，有两个同学的例子一定要分享一下。<br />
+第一个是Software Engineering的队友，一个华裔马来籍新加坡人，叫WeiKeng。软件工程这种课，团队合作及其重要，组会、在线讨论什么是家常便饭。别的地方不知道，反正我以前接触过的这些东西都是一片混乱，没有要讨论的点，想到什么说什么；没有时间概念，经常东拉西扯；没有全员参与，总有那么几个人保持沉默。但在这里我们第一次开会我就惊了，WeiKeng在Google Doc上写下了要参考的内容和详细agenda，这些可都是没有规定谁是team leader，没有分配任务之前他自发做的。之后CS3246的项目也和他一组，人家早早完成了自己的任务，我却一拖再拖最后还是没能完成，搞得非常不好意思。另外，除了负责人和组织能力外，作为一个刚刚上大二的学生，WeiKeng的编码能力也不弱，起码比我暑假实习前要强很多，而且人家成绩也很好…后来了解到他服兵役的时候被分到sergent组学习管理和指挥，可能很多能力都得益于这两年的军事训练吧。
+另外一个人是Lucie，从曼彻斯特大学来的交换生，读商科的硕士。话说我某天闲着没事儿在facebook上说想找一个native English speaker练习口语，作为交换我可以教他中文。本来我是只想找一个人一对一的，结果这个帖子一发不可收拾，最后搞成了一个有40多人的大组，里面基本是一半中国人想联系口语一半外国人想学中文。出现这种状况我脑袋顿时就大了，40个人可怎么管啊，没有时间啊…由于Lucie是第一个在脸书上回复我的人，第二天我们就一起出来商量这么多人要怎么组织，以及英语中文课上都要讲写什么。当时我想，教中文还不简单么，外国人中文都不咋地，随口教教他们拼音啥的就好了。于是我就两手空空的去跟Lucie讨论，结果又惊了…她在电脑上写了很详细的分组安排，英语课的内容，十几号大小的英文在word里写了有四五页吧…总之从那以后这个组名副其实的就是她在管，我纯抱大腿了…</p>
 
 <p>跟这两个人比，我自愧不如，而且我认为在认识的范围内，没见过几个能比得上的，从学习到能力。可能这两个是特例不足以说明平均水平，可我是拿国内最好的人在跟他们比啊。国内最好的尚且比不上人家，剩下的又如何能竞争呢。</p>
 
-<p>我们差在哪了呢，要在剩下的两个月里好好想想。</p>
+<p>我们差在哪了呢，要在剩下的两个月里好好想想。	</p>
 
 		
 		
@@ -696,6 +800,19 @@ sudo ln -f /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /u
 })(jQuery);
 </script> <!-- Delete or comment this line to disable Fancybox -->
 
+
+<script type="text/javascript">
+      var disqus_shortname = 'soundofwind';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
