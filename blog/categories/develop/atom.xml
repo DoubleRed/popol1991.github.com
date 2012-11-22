@@ -4,7 +4,7 @@
   <title><![CDATA[Category: develop | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/develop/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-11-18T15:31:40+08:00</updated>
+  <updated>2012-11-22T22:55:20+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to run program in Sublime Text 2]]></title>
+    <link href="http://popol1991.github.com/blog/2012/11/22/how-to-run-program-in-sublime-text-2/"/>
+    <updated>2012-11-22T22:44:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/11/22/how-to-run-program-in-sublime-text-2</id>
+    <content type="html"><![CDATA[<p>Use C program for example:</p>
+
+<p>In Sublime Text 2 <code>Tools-&gt;Build System-&gt;New Build System</code>.</p>
+
+<p>Edit the file like this:</p>
+
+<p>```
+{
+	“cmd”: [“gcc -o $file_base_name $file &amp;&amp; ./$file_base_name”],
+	“path”: “your $PATH variable”,
+	“shell”: true
+}</p>
+
+<p>```</p>
+
+<p>For the value of <code>cmd</code>, you can type any shell command so that you can write other compile and execute command for other languages.  Since sublime text don’t have the access to local file, you need to set the value of your $PATH variable for <code>path</code>.</p>
+
+<p>Now in your program file, press <code>Command+B</code>, the standard output will display in sublime text console!</p>
+
+<p><img src="/images/posts/sbl.png"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to solve Liquid error: undefined method for #]]></title>
@@ -189,7 +217,7 @@ Martin, R. C. (2008). <i>Clean Code: A Handbook of Agile Software Craftsmanship<
 <p>[2]
 oodesign Factory Pattern. Retrieved from http://www.oodesign.com/factory-pattern.html</p>
 
-<p>[2]
+<p>[3]
 Saurabh_Saxenaamrita nevrekar. (2009, June). Exploring Factory Pattern. Retrieved from http://www.codeproject.com/Articles/37547/Exploring-Factory-Pattern</p>
 ]]></content>
   </entry>

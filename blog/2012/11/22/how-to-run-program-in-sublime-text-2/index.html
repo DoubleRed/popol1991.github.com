@@ -3,11 +3,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Blog Archives - Sound of Wind</title>
+	<title>How to run program in Sublime Text 2 - Sound of Wind</title>
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="2012 How to run program in Sublime Text 2 Nov 22 develop How to solve Liquid error: undefined method for # Nov 17 develop Factory Pattern Nov 17 &hellip;">
+	<meta name="description" content="Use C program for example: In Sublime Text 2 Tools-&gt;Build System-&gt;New Build System. Edit the file like this: 1
+2
+3
+4
+5
+{ "cmd": ["gcc -o $ &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -101,168 +106,79 @@ MathJax.Hub.Config({
 	
 		
 	
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h1 class="title">How to Run Program in Sublime Text 2</h1>
+	<div class="entry-content"><p>Use C program for example:</p>
+
+<p>In Sublime Text 2 <code>Tools-&gt;Build System-&gt;New Build System</code>.</p>
+
+<p>Edit the file like this:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">{
+</span><span class="line">	"cmd": ["gcc -o $file_base_name $file &amp;&amp; ./$file_base_name"],
+</span><span class="line">	"path": "your $PATH variable",
+</span><span class="line">	"shell": true
+</span><span class="line">}
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>For the value of <code>cmd</code>, you can type any shell command so that you can write other compile and execute command for other languages.  Since sublime text don’t have the access to local file, you need to set the value of your $PATH variable for <code>path</code>.</p>
+
+<p>Now in your program file, press <code>Command+B</code>, the standard output will display in sublime text console!</p>
+
+<p><img src="/images/posts/sbl.png" /></p>
+</div>
 
 
-	
-	
-	<section class="archives"><h1 class="year">2012</h1>
-
-<article>
-	<h1 class="title"><a href="/blog/2012/11/22/how-to-run-program-in-sublime-text-2/">How to run program in Sublime Text 2</a></h1>
-	<div class="meta">
-		<span class="date">Nov 22</span>
-		<span class="tags">
+<div class="meta">
+	<div class="date">
 
 
-	<a class='category' href='/blog/categories/develop/'>develop</a>
 
 
-</span>
-	    
-	</div>
-</article>
-
-	
 
 
-<article>
-	<h1 class="title"><a href="/blog/2012/11/17/how-to-resolve-liquid-error-undefined-method-for-number/">How to solve Liquid error: undefined method for #</a></h1>
-	<div class="meta">
-		<span class="date">Nov 17</span>
-		<span class="tags">
 
 
-	<a class='category' href='/blog/categories/develop/'>develop</a>
+  
 
 
-</span>
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2012/11/17/factory-pattern/">Factory Pattern</a></h1>
-	<div class="meta">
-		<span class="date">Nov 17</span>
-		<span class="tags">
+<time datetime="2012-11-22T22:44:00+08:00" pubdate data-updated="true">Nov 22<span>nd</span>, 2012</time></div>
+	<div class="tags">
 
 
 	<a class='category' href='/blog/categories/develop/'>develop</a>
 
 
-</span>
-	    
-	</div>
-</article>
-
+</div>
 	
+</div></article>
 
-
-<article>
-	<h1 class="title"><a href="/blog/2012/11/15/functional-dependency-and-normalization/">Functional Dependency and Normalization</a></h1>
-	<div class="meta">
-		<span class="date">Nov 15</span>
-		<span class="tags">
-
-</span>
-	    
-	</div>
-</article>
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2012/11/13/se-in-nus-revision-note-2/">SE in NUS - Revision Note 2</a></h1>
-	<div class="meta">
-		<span class="date">Nov 13</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/study/'>study</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2012/11/13/se-in-nus-revision-note-1/">SE in NUS - Revision Note 1</a></h1>
-	<div class="meta">
-		<span class="date">Nov 13</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/study/'>Study</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
 	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2012/10/16/how-to-manage-my-reading-list/">how to manage my web reading list</a></h1>
-	<div class="meta">
-		<span class="date">Oct 16</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/life/'>life</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
+	<a class="addthis_button_tweet"></a>
 	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2012/09/26/wo-men-chai-zai-na-liao/">我们差在哪了?</a></h1>
-	<div class="meta">
-		<span class="date">Sep 26</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/life/'>life</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
 	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2012/09/26/test-post/">Test Post</a></h1>
-	<div class="meta">
-		<span class="date">Sep 26</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/development/'>development</a>
-
-
-</span>
-	    
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-</article>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2012
 
@@ -282,7 +198,10 @@ MathJax.Hub.Config({
       var disqus_shortname = 'soundofwind';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://popol1991.github.com/blog/2012/11/22/how-to-run-program-in-sublime-text-2/';
+        var disqus_url = 'http://popol1991.github.com/blog/2012/11/22/how-to-run-program-in-sublime-text-2/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
