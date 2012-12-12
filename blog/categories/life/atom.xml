@@ -4,7 +4,7 @@
   <title><![CDATA[Category: life | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/life/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2012-12-13T01:19:01+08:00</updated>
+  <updated>2012-12-13T01:24:47+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -69,7 +69,7 @@
 <h2 id="section-5">课程安排</h2>
 <p>上图！</p>
 
-<p><img src="/images/posts/schedual.png"></p>
+<p>{% img /images/posts/schedual.png %}</p>
 
 <h2 id="section-6">我的感想</h2>
 
