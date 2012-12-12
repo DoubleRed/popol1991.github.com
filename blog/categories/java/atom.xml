@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: java | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2012-12-13T01:19:01+08:00</updated>
+  <id>http://popol1991.github.com/</id>
+  <author>
+    <name><![CDATA[popol]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[JAVA中的匿名类]]></title>
+    <link href="http://popol1991.github.com/blog/2012/12/13/javazhong-de-ni-ming-lei/"/>
+    <updated>2012-12-13T00:19:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2012/12/13/javazhong-de-ni-ming-lei</id>
+    <content type="html"><![CDATA[<h2 id="section">匿名类</h2>
+<p>刚才随手翻了一下Thinking in JAVA，发现了一个以前没有注意过的概念：匿名类。其实之前已经使用过匿名类，只是没有注意罢了，对Collections或Arrays的自定义排序就是一个常见的应用：</p>
+
+<p><code>java custom sort http://rosettacode.org/wiki/Sort_using_a_custom_comparator#Java
+	Arrays.sort(strings, new Comparator&lt;String&gt;() {
+      public int compare(String s1, String s2) {
+        int c = s2.length() - s1.length();
+        if (c == 0)
+          c = s1.compareToIgnoreCase(s2);
+        return c;
+      }
+    });
+</code></p>
+
+<h2 id="section-1">工厂方法</h2>
+<p>用匿名类实现工厂方法让人生变得异常美好，实例代码如下：</p>
+
+<p>``` java Factory Method via Anonymous Class lang:java
+interface Product {
+	void method1();
+	void method1();
+}</p>
+
+<p>interface Factory {
+	Product getProduct();
+}</p>
+
+<p>class Product1 implements Product {
+	private Product() {};
+	public void method1() {};
+	public void method2() {};</p>
+
+<pre><code>public static Factory factory {
+	new Factory() {
+		public Product getProduct() {
+			return new Product1();
+		}
+	}
+} }
+</code></pre>
+
+<p>class Product2 implements Product {
+	private Product() {};
+	public void method1() {};
+	public void method2() {};</p>
+
+<pre><code>public static Factory factory {
+	new Factory() {
+		public Product getProduct() {
+			return new Product2();
+		}
+	}
+} } ``` 有了匿名类，我们就不用给每一个具体产品写一个工厂类了！
+</code></pre>
+
+<h2 id="section-2">回调机制</h2>
+<p>看到匿名类自然就想到javascript里的匿名函数，利用匿名函数我们可以很方便的实现事件驱动编程。这里有一篇不错的博客，用匿名类实现了类似于jQuery的链式操作：<a href="http://abruzzi.iteye.com/blog/539515">对Java中匿名类的一些思考</a></p>
+
+]]></content>
+  </entry>
+  
+</feed>

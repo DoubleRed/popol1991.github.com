@@ -7,8 +7,16 @@
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="结束了在NUS四个月的学习生活，坐在舒服的家里，开始写这篇答应邹欣老师要写的NUS软件工程感想。
-想直接看感想请直接跳到第三部分。 简介 课程代码为CS2103，先修课程为CS1020 – Data Structures and Algorightms 1 – 只在每学年上半学期开课， &hellip;">
+	<meta name="description" content="匿名类
+刚才随手翻了一下Thinking in JAVA，发现了一个以前没有注意过的概念：匿名类。其实之前已经使用过匿名类，只是没有注意罢了，对Collections或Arrays的自定义排序就是一个常见的应用： custom sort link1
+2
+3
+4
+5
+6
+7
+8
+Arrays. &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -103,6 +111,142 @@ MathJax.Hub.Config({
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h1 class="title"><a href="/blog/2012/12/13/javazhong-de-ni-ming-lei/">JAVA中的匿名类</a></h1>
+	<div class="entry-content">
+		<h2 id="section">匿名类</h2>
+<p>刚才随手翻了一下Thinking in JAVA，发现了一个以前没有注意过的概念：匿名类。其实之前已经使用过匿名类，只是没有注意罢了，对Collections或Arrays的自定义排序就是一个常见的应用：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>custom sort </span><a href="http://rosettacode.org/wiki/Sort_using_a_custom_comparator#Java">link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">strings</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class="line">  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="line">    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+</span><span class="line">    <span class="k">if</span> <span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+</span><span class="line">      <span class="n">c</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="na">compareToIgnoreCase</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
+</span><span class="line">    <span class="k">return</span> <span class="n">c</span><span class="o">;</span>
+</span><span class="line">  <span class="o">}</span>
+</span><span class="line"><span class="o">});</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="section-1">工厂方法</h2>
+<p>用匿名类实现工厂方法让人生变得异常美好，实例代码如下：</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span>Factory Method via Anonymous Class lang:java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">interface</span> <span class="nc">Product</span> <span class="o">{</span>
+</span><span class="line">	<span class="kt">void</span> <span class="nf">method1</span><span class="o">();</span>
+</span><span class="line">	<span class="kt">void</span> <span class="nf">method1</span><span class="o">();</span>
+</span><span class="line"><span class="o">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">interface</span> <span class="nc">Factory</span> <span class="o">{</span>
+</span><span class="line">	<span class="n">Product</span> <span class="nf">getProduct</span><span class="o">();</span>
+</span><span class="line"><span class="o">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">class</span> <span class="nc">Product1</span> <span class="kd">implements</span> <span class="n">Product</span> <span class="o">{</span>
+</span><span class="line">	<span class="kd">private</span> <span class="nf">Product</span><span class="o">()</span> <span class="o">{};</span>
+</span><span class="line">	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">()</span> <span class="o">{};</span>
+</span><span class="line">	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">()</span> <span class="o">{};</span>
+</span><span class="line">
+</span><span class="line">	<span class="kd">public</span> <span class="kd">static</span> <span class="n">Factory</span> <span class="n">factory</span> <span class="o">{</span>
+</span><span class="line">		<span class="k">new</span> <span class="nf">Factory</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="line">			<span class="kd">public</span> <span class="n">Product</span> <span class="nf">getProduct</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="line">				<span class="k">return</span> <span class="k">new</span> <span class="nf">Product1</span><span class="o">();</span>
+</span><span class="line">			<span class="o">}</span>
+</span><span class="line">		<span class="o">}</span>
+</span><span class="line">	<span class="o">}</span>
+</span><span class="line"><span class="o">}</span>
+</span><span class="line">
+</span><span class="line"><span class="kd">class</span> <span class="nc">Product2</span> <span class="kd">implements</span> <span class="n">Product</span> <span class="o">{</span>
+</span><span class="line">	<span class="kd">private</span> <span class="nf">Product</span><span class="o">()</span> <span class="o">{};</span>
+</span><span class="line">	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">method1</span><span class="o">()</span> <span class="o">{};</span>
+</span><span class="line">	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">method2</span><span class="o">()</span> <span class="o">{};</span>
+</span><span class="line">
+</span><span class="line">	<span class="kd">public</span> <span class="kd">static</span> <span class="n">Factory</span> <span class="n">factory</span> <span class="o">{</span>
+</span><span class="line">		<span class="k">new</span> <span class="nf">Factory</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="line">			<span class="kd">public</span> <span class="n">Product</span> <span class="nf">getProduct</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="line">				<span class="k">return</span> <span class="k">new</span> <span class="nf">Product2</span><span class="o">();</span>
+</span><span class="line">			<span class="o">}</span>
+</span><span class="line">		<span class="o">}</span>
+</span><span class="line">	<span class="o">}</span>
+</span><span class="line"><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>有了匿名类，我们就不用给每一个具体产品写一个工厂类了！</p>
+
+<h2 id="section-2">回调机制</h2>
+<p>看到匿名类自然就想到javascript里的匿名函数，利用匿名函数我们可以很方便的实现事件驱动编程。这里有一篇不错的博客，用匿名类实现了类似于jQuery的链式操作：<a href="http://abruzzi.iteye.com/blog/539515">对Java中匿名类的一些思考</a></p>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-13T00:19:00+08:00" pubdate data-updated="true">Dec 13<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/develop/'>develop</a>, <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/language/'>language</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
@@ -884,52 +1028,10 @@ So I created a account for archive web pages, and every time I finish reading a 
 	
 </div></article>
 
-
-    <article class="post">
-	<h1 class="title"><a href="/blog/2012/09/26/test-post/">Test Post</a></h1>
-	<div class="entry-content">
-		<p>用Octopress在github上写博客这种方式太geek了，我喜欢~</p>
-
-<p>第一篇test post就随便写一下在MacOS里怎么用ln命令使得我们可以轻松的在terminal里调用正常的应用。
-以Sublime Text 2为例，正好我刚刚想用它来编辑我的blog，所以在terminal里输入以下命令：</p>
-
-<pre><code>sudo touch /usr/local/bin/subl
-sudo ln -f /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl`
-</code></pre>
-
-<p>然后就可以在命令行里直接用subl调用Sublime Text 2了！这样的好处是可以直接传递一些参数，不用每次都在图形界面里拖来拖去就是了！</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-26T00:45:00+08:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/development/'>development</a>
-
-
-</div>
-	
-</div></article>
-
 <nav id="pagenavi">
     
+    
+        <a href="/blog/page/2/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
