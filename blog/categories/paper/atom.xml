@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: paper | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/paper/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2013-02-05T17:14:51+08:00</updated>
+  <id>http://popol1991.github.com/</id>
+  <author>
+    <name><![CDATA[popol]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[reading note]]></title>
+    <link href="http://popol1991.github.com/blog/2013/02/05/reading-note/"/>
+    <updated>2013-02-05T14:52:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2013/02/05/reading-note</id>
+    <content type="html"><![CDATA[<h1 id="paper">Paper</h1>
+
+<p><a href="http://www2003.org/cdrom/papers/refereed/p779/ess.html">
+Guha, R., McCool, R., &#38; Miller, E. (2003). Semantic search. In <i>Proceedings of the 12th international conference on World Wide Web</i> (700–709).</a></p>
+
+<h1 id="notes">Notes</h1>
+
+<ul>
+  <li>Intuition: traditional search can be improved by using data from the Semantic Web</li>
+  <li>2 kinds of search
+    <ol>
+      <li><strong>Navigational Searches</strong>: no denoting concepts</li>
+      <li><strong>Research Searches</strong>: intended to denote a object</li>
+    </ol>
+  </li>
+  <li>Semantic search in this paper mainly focus on <strong>Research Searches</strong></li>
+  <li>Query Examples
+    <ul>
+      <li>GetData(&lt; Yo-YoMa &gt;, birthplace),=&gt;&lt; Paris, France &gt;</li>
+      <li>GetData(&lt; Paris, France &gt;,temperature),=&gt; 57F</li>
+    </ul>
+  </li>
+  <li>Eliminate Denoting Ambiguity
+    <ul>
+      <li>popularity of the term</li>
+      <li>user profile</li>
+      <li>search context</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- more -->
+
+<h1 id="paper-1">Paper</h1>
+
+<p><a href="http://knoesis.wright.edu/library/download/SRT05-IJ-SW-IS.pdf">
+Sheth, A. P., Ramakrishnan, C., &#38; Thomas, C. (2005). {Semantics for the Semantic Web: The Implicit, the Formal and the Powerful}. <i>International Journal on Semantic Web and Information Systems</i>, <i>1</i>(1), 1–18.</a></p>
+
+<h1 id="notes-1">Notes</h1>
+
+<ul>
+  <li>Central message: building the Semantic Web purely on description logics will artificially limit it potential, and that we will need to both exploit well known techniques that support implicit semantics, and develop more powerful semantic techniques.</li>
+  <li>Forms of semantics: Implicit, Formal, Powerful
+    <ol>
+      <li>Implicit: unstructured text, loosely defined and less formal structure (IR, IE, CL)</li>
+      <li>Formal: rigid, well defined, rules (KR, AI, DB)</li>
+      <li>Powerful: soft computing, extend the base models</li>
+    </ol>
+  </li>
+  <li>Two well recognized critical enabling capabilities:
+    <ol>
+      <li>ontology generation</li>
+      <li>automated resource annotation</li>
+    </ol>
+  </li>
+</ul>
+
+<p><img src="/images/posts/table1.png" width="800">
+<img src="/images/posts/table2.png" width="800"></p>
+]]></content>
+  </entry>
+  
+</feed>
