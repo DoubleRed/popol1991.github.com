@@ -4,7 +4,7 @@
   <title><![CDATA[Category: knowledge | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/knowledge/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2013-02-05T17:14:51+08:00</updated>
+  <updated>2013-02-07T11:00:56+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -12,6 +12,84 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[reading note - overview of semantic search]]></title>
+    <link href="http://popol1991.github.com/blog/2013/02/07/reading-note-2/"/>
+    <updated>2013-02-07T10:34:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2013/02/07/reading-note-2</id>
+    <content type="html"><![CDATA[<p><a href="http://www.seco.tkk.fi/publications/2005/makela-semantic-search-2005.pdf">
+M{"a}kel{"a}E. (2005). Survey of semantic search research. In <i>Proceedings of the seminar on knowledge management on the semantic web</i>.</a></p>
+
+<h1 id="notes">Notes</h1>
+
+<h2 id="directions">Directions</h2>
+
+<h3 id="augmenting-traditional-keyword-search-with-semantic-techniques">Augmenting Traditional Keyword Search with Semantic Techniques</h3>
+
+<ul>
+  <li>Making use of ontological techniques</li>
+</ul>
+
+<ol>
+  <li>Query expansion, using WordNet ontology [1][2][3]</li>
+  <li>“Semantic Search” interface provided by TAP infrastructure [4]</li>
+  <li>extract semantic information from results obtained via text search [5]</li>
+  <li>visualized ontological interface for front-end</li>
+</ol>
+
+<h3 id="basic-concept-location">Basic Concept Location</h3>
+
+<ol>
+  <li>subsumption tree -&gt; keyword filter -&gt; instances [6][7]</li>
+  <li>multi-facet search. e.g. material, place of manufacture, context of use, etc.</li>
+  <li>keyword search -&gt; multi-facet search</li>
+  <li>browsing from resource to resource</li>
+</ol>
+
+<h3 id="complex-constraint-queryies">Complex Constraint Queryies</h3>
+
+<ol>
+  <li>GRQL, navigating the ontology</li>
+  <li>prepared domain-specific pattern, and then refiened by user</li>
+  <li>multi-facet search as a user interface</li>
+</ol>
+
+<h3 id="problem-solving">Problem Solving</h3>
+
+<ul>
+  <li>searching for a solution by inferring
+    <ol>
+      <li>“if-then” queries</li>
+    </ol>
+  </li>
+</ul>
+
+<!-- --------------------REFERENCES-------------------- -->
+
+<h1 id="references">References</h1>
+<p>[1] 
+Moldovan, D. I., &#38; Mihalcea, R. (2000). {Using WordNet and Lexical Operators to Improve Internet Searches}. <i>IEEE Internet Computing</i>, <i>4</i>(1), 34–43. doi:10.1109/4236.815847</p>
+
+<p>[2] 
+Buscaldi, D., Rosso, P., &#38; Arnal, E. S. (2005). {A WordNet-based Query Expansion method for Geographical Information Retrieval}.</p>
+
+<p>[3] 
+Kruse, P. M., Naujoks, A., Roesner, D., &#38; Kunze, M. (2005). {Clever Search: A WordNet Based Wrapper for Internet Search Engines}. <i>Computing Research Repository</i>, <i>abs/cs/050</i>.</p>
+
+<p>[4] 
+Guha, R. V., McCool, R., &#38; Miller, E. (2003). {Semantic search}. In <i>World Wide Web Conference Series</i> (700–709). doi:10.1145/775152.775250</p>
+
+<p>[5] 
+Rocha, C., Schwabe, D., &#38; de Aragão, M. P. (2004). {A hybrid approach for searching in the semantic web}. In <i>World Wide Web Conference Series</i> (374–383). doi:10.1145/988672.988723</p>
+
+<p>[6] 
+Heflin, J., &#38; Hendler, J. (2000). {Searching the Web with SHOE}.</p>
+
+<p>[7] 
+Stojanovic, N., Maedche, A., Staab, S., Studer, R., &#38; Sure, Y. (2001). {SEAL: a framework for developing SEmantic PortALs}. In <i>International Conference on Knowledge Capture</i> (155–162). doi:10.1145/500737.500762</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[reading note]]></title>
