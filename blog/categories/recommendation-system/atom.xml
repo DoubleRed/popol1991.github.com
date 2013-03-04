@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: recommendation_system | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/recommendation-system/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2013-03-04T14:22:59+08:00</updated>
+  <id>http://popol1991.github.com/</id>
+  <author>
+    <name><![CDATA[popol]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hulu Recommendation System - Note]]></title>
+    <link href="http://popol1991.github.com/blog/2013/03/04/hulu-recommendation-system-note/"/>
+    <updated>2013-03-04T13:51:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2013/03/04/hulu-recommendation-system-note</id>
+    <content type="html"><![CDATA[<p><a href="tech.hulu.com/blog/2011/09/19/recommendation-system/">Link to original page.</a></p>
+
+<h2 id="data-characteristics">Data Characteristics</h2>
+
+<h3 id="recommendation-grain-shows">Recommendation grain: Shows</h3>
+<ul>
+  <li>On-air show: highly important</li>
+  <li>Library show: summer, weekend when</li>
+</ul>
+
+<h3 id="data">Data</h3>
+<ul>
+  <li>Explicit: rating</li>
+  <li>Implicit: watching, browsing, searching (make up most part of data, important)</li>
+</ul>
+
+<h2 id="architecture">Architecture</h2>
+
+<h3 id="item-based-collaborating-filter">Item-based Collaborating Filter</h3>
+
+<ul>
+  <li>Suitable when #Users is much greater than #Items</li>
+  <li>User $u$’s preference on item $i$ can be measured by:
+$$
+p(u,i)= \sum_{j\in N(u)} r(u,j)s(i,j)
+$$
+where
+$$
+s(i,j) = \frac{|N(i) \cap N(j)|}{\sqrt{|N(i)||N(j)|}}
+$$
+Here, $r(u,j)$ is the preference weight of user $u$ on show $j$, $s(i,j)$ is the similarity between show $i$ and show $j$, and N(j) is a set of users who watched show $j$.</li>
+  <li>Harry Potter Problem: every show is highly relevant to popular shows</li>
+</ul>
+
+<h2 id="lessons">Lessons</h2>
+
+<ol>
+  <li>Recent behavior is more important than historical behavior.</li>
+  <li>Novelty, it’s unnecessary to recommend watched video
+    <ul>
+      <li>decrease weight of popular shows that user watched before</li>
+      <li>increase weight on relevant but unpopular shows</li>
+    </ul>
+  </li>
+  <li>Explanation Diversity</li>
+  <li>Temporal Diversity
+    <ul>
+      <li>recent added show</li>
+      <li>randomization</li>
+      <li>decrease rank of recommendations that users have seen many times</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Every user behavior can reflect user preference</strong></p>
+]]></content>
+  </entry>
+  
+</feed>

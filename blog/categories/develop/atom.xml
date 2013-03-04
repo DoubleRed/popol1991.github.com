@@ -4,7 +4,7 @@
   <title><![CDATA[Category: develop | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/develop/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2013-02-27T18:18:02+08:00</updated>
+  <updated>2013-03-04T14:22:59+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -105,7 +105,7 @@ interface Product {
 
 <p>Now in your program file, press <code>Command+B</code>, the standard output will display in sublime text console!</p>
 
-<p><img src="/images/posts/subl.png"></p>
+<p>{% img /images/posts/subl.png %}</p>
 ]]></content>
   </entry>
   
@@ -177,7 +177,7 @@ showInCommandLine(cmd.getFeedback());
 </ul>
 
 <h2 id="class-diagram">Class Diagram</h2>
-<p><img src="/images/posts/FactoryPattern.png" width="500"></p>
+<p>{% img /images/posts/FactoryPattern.png 500 %}</p>
 
 <!-- more -->
 
@@ -279,14 +279,35 @@ class CommandFactory {
 
 <h2 id="references">References</h2>
 
-<p>[1]
-Martin, R. C. (2008). <i>Clean Code: A Handbook of Agile Software Craftsmanship</i> (1 ed.). Upper Saddle River, NJ, USA: Prentice Hall PTR.</p>
+<p>[1]{% bibtex %}
+@book{cleancode,
+ author = {Martin, Robert C.},
+ title = {Clean Code: A Handbook of Agile Software Craftsmanship},
+ year = {2008},
+ isbn = {0132350882, 9780132350884},
+ edition = {1},
+ publisher = {Prentice Hall PTR},
+ address = {Upper Saddle River, NJ, USA},
+} 
+{% endbibtex %}</p>
 
-<p>[2]
-oodesign Factory Pattern. Retrieved from http://www.oodesign.com/factory-pattern.html</p>
+<p>[2]{% bibtex %}
+@ONLINE{oodesign,
+author = {oodesign},
+title = {Factory Pattern},
+url = {http://www.oodesign.com/factory-pattern.html}
+}
+{% endbibtex %}</p>
 
-<p>[3]
-Saurabh_Saxenaamrita nevrekar. (2009, June). Exploring Factory Pattern. Retrieved from http://www.codeproject.com/Articles/37547/Exploring-Factory-Pattern</p>
+<p>[3]{% bibtex %}
+@ONLINE{codeproj,
+author = {Saurabh_Saxena, amrita nevrekar},
+title = {Exploring Factory Pattern},
+month = jun,
+year = {2009},
+url = {http://www.codeproject.com/Articles/37547/Exploring-Factory-Pattern}
+}
+{% endbibtex %}</p>
 ]]></content>
   </entry>
   

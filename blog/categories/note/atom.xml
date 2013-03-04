@@ -4,7 +4,7 @@
   <title><![CDATA[Category: note | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/note/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2013-02-27T18:18:02+08:00</updated>
+  <updated>2013-03-04T14:22:59+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -14,12 +14,82 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Hulu Recommendation System - Note]]></title>
+    <link href="http://popol1991.github.com/blog/2013/03/04/hulu-recommendation-system-note/"/>
+    <updated>2013-03-04T13:51:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2013/03/04/hulu-recommendation-system-note</id>
+    <content type="html"><![CDATA[<p><a href="tech.hulu.com/blog/2011/09/19/recommendation-system/">Link to original page.</a></p>
+
+<h2 id="data-characteristics">Data Characteristics</h2>
+
+<h3 id="recommendation-grain-shows">Recommendation grain: Shows</h3>
+<ul>
+  <li>On-air show: highly important</li>
+  <li>Library show: summer, weekend when</li>
+</ul>
+
+<h3 id="data">Data</h3>
+<ul>
+  <li>Explicit: rating</li>
+  <li>Implicit: watching, browsing, searching (make up most part of data, important)</li>
+</ul>
+
+<h2 id="architecture">Architecture</h2>
+
+<h3 id="item-based-collaborating-filter">Item-based Collaborating Filter</h3>
+
+<ul>
+  <li>Suitable when #Users is much greater than #Items</li>
+  <li>User $u$’s preference on item $i$ can be measured by:
+$$
+p(u,i)= \sum_{j\in N(u)} r(u,j)s(i,j)
+$$
+where
+$$
+s(i,j) = \frac{|N(i) \cap N(j)|}{\sqrt{|N(i)||N(j)|}}
+$$
+Here, $r(u,j)$ is the preference weight of user $u$ on show $j$, $s(i,j)$ is the similarity between show $i$ and show $j$, and N(j) is a set of users who watched show $j$.</li>
+  <li>Harry Potter Problem: every show is highly relevant to popular shows</li>
+</ul>
+
+<h2 id="lessons">Lessons</h2>
+
+<ol>
+  <li>Recent behavior is more important than historical behavior.</li>
+  <li>Novelty, it’s unnecessary to recommend watched video
+    <ul>
+      <li>decrease weight of popular shows that user watched before</li>
+      <li>increase weight on relevant but unpopular shows</li>
+    </ul>
+  </li>
+  <li>Explanation Diversity</li>
+  <li>Temporal Diversity
+    <ul>
+      <li>recent added show</li>
+      <li>randomization</li>
+      <li>decrease rank of recommendations that users have seen many times</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Every user behavior can reflect user preference</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[reading note - overview of semantic search]]></title>
     <link href="http://popol1991.github.com/blog/2013/02/07/reading-note-2/"/>
     <updated>2013-02-07T10:34:00+08:00</updated>
     <id>http://popol1991.github.com/blog/2013/02/07/reading-note-2</id>
-    <content type="html"><![CDATA[<p><a href="http://www.seco.tkk.fi/publications/2005/makela-semantic-search-2005.pdf">
-M{"a}kel{"a}E. (2005). Survey of semantic search research. In <i>Proceedings of the seminar on knowledge management on the semantic web</i>.</a></p>
+    <content type="html"><![CDATA[<p><a href="http://www.seco.tkk.fi/publications/2005/makela-semantic-search-2005.pdf">{% bibtex %}
+@inproceedings{makela2005survey,
+  title={Survey of semantic search research},
+  author={M{"a}kel{"a}, E.},
+  booktitle={Proceedings of the seminar on knowledge management on the semantic web},
+  year={2005}
+}
+{% endbibtex %}</a></p>
 
 <h1 id="notes">Notes</h1>
 
@@ -68,26 +138,84 @@ M{"a}kel{"a}E. (2005). Survey of semantic search research. In <i>Proceedings of 
 <!-- --------------------REFERENCES-------------------- -->
 
 <h1 id="references">References</h1>
-<p>[1] 
-Moldovan, D. I., &#38; Mihalcea, R. (2000). {Using WordNet and Lexical Operators to Improve Internet Searches}. <i>IEEE Internet Computing</i>, <i>4</i>(1), 34–43. doi:10.1109/4236.815847</p>
+<p>[1] {% bibtex %}
+@article{861235,
+author = {Dan I. Moldovan and Rada Mihalcea},
+title = {{Using WordNet and Lexical Operators to Improve Internet Searches}},
+journal = {IEEE Internet Computing},
+volume = {4},
+year = {2000},
+pages = {34–43},
+issue = {1},
+doi = {10.1109/4236.815847},
+masid = {861235}
+}
+{% endbibtex %}</p>
 
-<p>[2] 
-Buscaldi, D., Rosso, P., &#38; Arnal, E. S. (2005). {A WordNet-based Query Expansion method for Geographical Information Retrieval}.</p>
+<p>[2] {% bibtex% %}
+@article{2647341,
+author = {Davide Buscaldi and Paolo Rosso and Emilio Sanchis Arnal},
+title = {{A WordNet-based Query Expansion method for Geographical Information Retrieval}},
+year = {2005},
+masid = {2647341}
+}
+{% endbibtex %}</p>
 
-<p>[3] 
-Kruse, P. M., Naujoks, A., Roesner, D., &#38; Kunze, M. (2005). {Clever Search: A WordNet Based Wrapper for Internet Search Engines}. <i>Computing Research Repository</i>, <i>abs/cs/050</i>.</p>
+<p>[3] {% bibtex %}
+@article{4368613,
+author = {Peter M. Kruse and Andre Naujoks and Dietmar Roesner and Manuela Kunze},
+title = {{Clever Search: A WordNet Based Wrapper for Internet Search Engines}},
+journal = {Computing Research Repository},
+volume = {abs/cs/050},
+year = {2005},
+masid = {4368613}
+}
+{% endbibtex %}</p>
 
-<p>[4] 
-Guha, R. V., McCool, R., &#38; Miller, E. (2003). {Semantic search}. In <i>World Wide Web Conference Series</i> (700–709). doi:10.1145/775152.775250</p>
+<p>[4] {% bibtex %}
+@inproceedings{489234,
+author = {Ramanathan V. Guha and Rob McCool and Eric Miller},
+title = {{Semantic search}},
+booktitle = {World Wide Web Conference Series},
+year = {2003},
+pages = {700–709},
+doi = {10.1145/775152.775250},
+masid = {489234}
+}
+{% endbibtex %}</p>
 
-<p>[5] 
-Rocha, C., Schwabe, D., &#38; de Aragão, M. P. (2004). {A hybrid approach for searching in the semantic web}. In <i>World Wide Web Conference Series</i> (374–383). doi:10.1145/988672.988723</p>
+<p>[5] {% bibtex %}
+@inproceedings{924176,
+author = {Cristiano Rocha and Daniel Schwabe and Marcus Poggi de Aragão},
+title = {{A hybrid approach for searching in the semantic web}},
+booktitle = {World Wide Web Conference Series},
+year = {2004},
+pages = {374–383},
+doi = {10.1145/988672.988723},
+masid = {924176}
+}
+{% endbibtex %}</p>
 
-<p>[6] 
-Heflin, J., &#38; Hendler, J. (2000). {Searching the Web with SHOE}.</p>
+<p>[6] {% bibtex %}
+@article{237317,
+author = {Jeff Heflin and James Hendler},
+title = {{Searching the Web with SHOE}},
+year = {2000},
+masid = {237317}
+}
+{% endbibtex %}</p>
 
-<p>[7] 
-Stojanovic, N., Maedche, A., Staab, S., Studer, R., &#38; Sure, Y. (2001). {SEAL: a framework for developing SEmantic PortALs}. In <i>International Conference on Knowledge Capture</i> (155–162). doi:10.1145/500737.500762</p>
+<p>[7] {% bibtex %}
+@inproceedings{62263,
+author = {Nenad Stojanovic and Alexander Maedche and Steffen Staab and Rudi Studer and York Sure},
+title = {{SEAL: a framework for developing SEmantic PortALs}},
+booktitle = {International Conference on Knowledge Capture},
+year = {2001},
+pages = {155–162},
+doi = {10.1145/500737.500762},
+masid = {62263}
+}
+{% endbibtex %}</p>
 ]]></content>
   </entry>
   
@@ -98,8 +226,16 @@ Stojanovic, N., Maedche, A., Staab, S., Studer, R., &#38; Sure, Y. (2001). {SEAL
     <id>http://popol1991.github.com/blog/2013/02/05/reading-note</id>
     <content type="html"><![CDATA[<h1 id="paper">Paper</h1>
 
-<p><a href="http://www2003.org/cdrom/papers/refereed/p779/ess.html">
-Guha, R., McCool, R., &#38; Miller, E. (2003). Semantic search. In <i>Proceedings of the 12th international conference on World Wide Web</i> (700–709).</a></p>
+<p><a href="http://www2003.org/cdrom/papers/refereed/p779/ess.html">{% bibtex %}
+@inproceedings{guha2003semantic,
+  title={Semantic search},
+  author={Guha, R. and McCool, R. and Miller, E.},
+  booktitle={Proceedings of the 12th international conference on World Wide Web},
+  pages={700–709},
+  year={2003},
+  organization={ACM}
+}
+{% endbibtex %}</a></p>
 
 <h1 id="notes">Notes</h1>
 
@@ -131,8 +267,18 @@ Guha, R., McCool, R., &#38; Miller, E. (2003). Semantic search. In <i>Proceeding
 
 <h1 id="paper-1">Paper</h1>
 
-<p><a href="http://knoesis.wright.edu/library/download/SRT05-IJ-SW-IS.pdf">
-Sheth, A. P., Ramakrishnan, C., &#38; Thomas, C. (2005). {Semantics for the Semantic Web: The Implicit, the Formal and the Powerful}. <i>International Journal on Semantic Web and Information Systems</i>, <i>1</i>(1), 1–18.</a></p>
+<p><a href="http://knoesis.wright.edu/library/download/SRT05-IJ-SW-IS.pdf">{% bibtex %}
+@article{1749348,
+author = {Amit P. Sheth and Cartic Ramakrishnan and Christopher Thomas},
+title = {{Semantics for the Semantic Web: The Implicit, the Formal and the Powerful}},
+journal = {International Journal on Semantic Web and Information Systems},
+volume = {1},
+year = {2005},
+pages = {1–18},
+issue = {1},
+masid = {1749348}
+}
+{% endbibtex %}</a></p>
 
 <h1 id="notes-1">Notes</h1>
 
@@ -153,8 +299,8 @@ Sheth, A. P., Ramakrishnan, C., &#38; Thomas, C. (2005). {Semantics for the Sema
   </li>
 </ul>
 
-<p><img src="/images/posts/table1.png" width="800">
-<img src="/images/posts/table2.png" width="800"></p>
+<p>{% img /images/posts/table1.png 800 %}
+{% img /images/posts/table2.png 800 %}</p>
 ]]></content>
   </entry>
   

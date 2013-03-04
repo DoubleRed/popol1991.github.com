@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Category: research - Sound of Wind</title>
+	<title>Hulu Recommendation System - Note - Sound of Wind</title>
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="Category: research">
+	<meta name="description" content="Link to original page. Data Characteristics Recommendation grain: Shows On-air show: highly important Library show: summer, weekend when Data &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -104,65 +104,112 @@ MathJax.Hub.Config({
 		
 	
   
-	<div id="content" class="inner">
-	
+	<div id="content" class="inner"><article class="post">
+	<h1 class="title">Hulu Recommendation System - Note</h1>
+	<div class="entry-content"><p><a href="tech.hulu.com/blog/2011/09/19/recommendation-system/">Link to original page.</a></p>
+
+<h2 id="data-characteristics">Data Characteristics</h2>
+
+<h3 id="recommendation-grain-shows">Recommendation grain: Shows</h3>
+<ul>
+  <li>On-air show: highly important</li>
+  <li>Library show: summer, weekend when</li>
+</ul>
+
+<h3 id="data">Data</h3>
+<ul>
+  <li>Explicit: rating</li>
+  <li>Implicit: watching, browsing, searching (make up most part of data, important)</li>
+</ul>
+
+<h2 id="architecture">Architecture</h2>
+
+<h3 id="item-based-collaborating-filter">Item-based Collaborating Filter</h3>
+
+<ul>
+  <li>Suitable when #Users is much greater than #Items</li>
+  <li>User $u$’s preference on item $i$ can be measured by:
+$$
+p(u,i)= \sum_{j\in N(u)} r(u,j)s(i,j)
+$$
+where
+$$
+s(i,j) = \frac{|N(i) \cap N(j)|}{\sqrt{|N(i)||N(j)|}}
+$$
+Here, $r(u,j)$ is the preference weight of user $u$ on show $j$, $s(i,j)$ is the similarity between show $i$ and show $j$, and N(j) is a set of users who watched show $j$.</li>
+  <li>Harry Potter Problem: every show is highly relevant to popular shows</li>
+</ul>
+
+<h2 id="lessons">Lessons</h2>
+
+<ol>
+  <li>Recent behavior is more important than historical behavior.</li>
+  <li>Novelty, it’s unnecessary to recommend watched video
+    <ul>
+      <li>decrease weight of popular shows that user watched before</li>
+      <li>increase weight on relevant but unpopular shows</li>
+    </ul>
+  </li>
+  <li>Explanation Diversity</li>
+  <li>Temporal Diversity
+    <ul>
+      <li>recent added show</li>
+      <li>randomization</li>
+      <li>decrease rank of recommendations that users have seen many times</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Every user behavior can reflect user preference</strong></p>
+</div>
 
 
-	
-	
-	<section class="archives"><h1 class="year">2013</h1>
+<div class="meta">
+	<div class="date">
 
-<article>
-	<h1 class="title"><a href="/blog/2013/03/04/hulu-recommendation-system-note/">Hulu Recommendation System - Note</a></h1>
-	<div class="meta">
-		<span class="date">Mar  4</span>
-		<span class="tags">
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T13:51:00+08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2013</time></div>
+	<div class="tags">
 
 
 	<a class='category' href='/blog/categories/hulu/'>hulu</a>, <a class='category' href='/blog/categories/note/'>note</a>, <a class='category' href='/blog/categories/recommendation-system/'>recommendation_system</a>, <a class='category' href='/blog/categories/research/'>research</a>
 
 
-</span>
-	    
-	</div>
-</article>
-
+</div>
 	
+</div></article>
 
-
-<article>
-	<h1 class="title"><a href="/blog/2013/02/07/reading-note-2/">reading note - overview of semantic search</a></h1>
-	<div class="meta">
-		<span class="date">Feb  7</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/knowledge/'>knowledge</a>, <a class='category' href='/blog/categories/note/'>note</a>, <a class='category' href='/blog/categories/paper/'>paper</a>, <a class='category' href='/blog/categories/research/'>research</a>, <a class='category' href='/blog/categories/semantic-search/'>semantic_search</a>
-
-
-</span>
-	    
-	</div>
-</article>
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-
-<article>
-	<h1 class="title"><a href="/blog/2013/02/05/reading-note/">reading note</a></h1>
-	<div class="meta">
-		<span class="date">Feb  5</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/knowledge/'>knowledge</a>, <a class='category' href='/blog/categories/note/'>note</a>, <a class='category' href='/blog/categories/paper/'>paper</a>, <a class='category' href='/blog/categories/research/'>research</a>
-
-
-</span>
-	    
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-</article>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2013
 
@@ -182,7 +229,10 @@ MathJax.Hub.Config({
       var disqus_shortname = 'soundofwind';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://popol1991.github.com/blog/2013/03/04/hulu-recommendation-system-note/';
+        var disqus_url = 'http://popol1991.github.com/blog/2013/03/04/hulu-recommendation-system-note/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
