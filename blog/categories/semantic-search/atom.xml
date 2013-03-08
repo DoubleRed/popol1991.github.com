@@ -4,7 +4,7 @@
   <title><![CDATA[Category: semantic_search | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/semantic-search/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2013-03-04T14:22:59+08:00</updated>
+  <updated>2013-03-08T16:30:31+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -18,14 +18,8 @@
     <link href="http://popol1991.github.com/blog/2013/02/07/reading-note-2/"/>
     <updated>2013-02-07T10:34:00+08:00</updated>
     <id>http://popol1991.github.com/blog/2013/02/07/reading-note-2</id>
-    <content type="html"><![CDATA[<p><a href="http://www.seco.tkk.fi/publications/2005/makela-semantic-search-2005.pdf">{% bibtex %}
-@inproceedings{makela2005survey,
-  title={Survey of semantic search research},
-  author={M{"a}kel{"a}, E.},
-  booktitle={Proceedings of the seminar on knowledge management on the semantic web},
-  year={2005}
-}
-{% endbibtex %}</a></p>
+    <content type="html"><![CDATA[<p><a href="http://www.seco.tkk.fi/publications/2005/makela-semantic-search-2005.pdf">
+M{"a}kel{"a}E. (2005). Survey of semantic search research. In <i>Proceedings of the seminar on knowledge management on the semantic web</i>.</a></p>
 
 <h1 id="notes">Notes</h1>
 
@@ -74,84 +68,26 @@
 <!-- --------------------REFERENCES-------------------- -->
 
 <h1 id="references">References</h1>
-<p>[1] {% bibtex %}
-@article{861235,
-author = {Dan I. Moldovan and Rada Mihalcea},
-title = {{Using WordNet and Lexical Operators to Improve Internet Searches}},
-journal = {IEEE Internet Computing},
-volume = {4},
-year = {2000},
-pages = {34–43},
-issue = {1},
-doi = {10.1109/4236.815847},
-masid = {861235}
-}
-{% endbibtex %}</p>
+<p>[1] 
+Moldovan, D. I., &#38; Mihalcea, R. (2000). {Using WordNet and Lexical Operators to Improve Internet Searches}. <i>IEEE Internet Computing</i>, <i>4</i>(1), 34–43. doi:10.1109/4236.815847</p>
 
-<p>[2] {% bibtex% %}
-@article{2647341,
-author = {Davide Buscaldi and Paolo Rosso and Emilio Sanchis Arnal},
-title = {{A WordNet-based Query Expansion method for Geographical Information Retrieval}},
-year = {2005},
-masid = {2647341}
-}
-{% endbibtex %}</p>
+<p>[2] 
+Buscaldi, D., Rosso, P., &#38; Arnal, E. S. (2005). {A WordNet-based Query Expansion method for Geographical Information Retrieval}.</p>
 
-<p>[3] {% bibtex %}
-@article{4368613,
-author = {Peter M. Kruse and Andre Naujoks and Dietmar Roesner and Manuela Kunze},
-title = {{Clever Search: A WordNet Based Wrapper for Internet Search Engines}},
-journal = {Computing Research Repository},
-volume = {abs/cs/050},
-year = {2005},
-masid = {4368613}
-}
-{% endbibtex %}</p>
+<p>[3] 
+Kruse, P. M., Naujoks, A., Roesner, D., &#38; Kunze, M. (2005). {Clever Search: A WordNet Based Wrapper for Internet Search Engines}. <i>Computing Research Repository</i>, <i>abs/cs/050</i>.</p>
 
-<p>[4] {% bibtex %}
-@inproceedings{489234,
-author = {Ramanathan V. Guha and Rob McCool and Eric Miller},
-title = {{Semantic search}},
-booktitle = {World Wide Web Conference Series},
-year = {2003},
-pages = {700–709},
-doi = {10.1145/775152.775250},
-masid = {489234}
-}
-{% endbibtex %}</p>
+<p>[4] 
+Guha, R. V., McCool, R., &#38; Miller, E. (2003). {Semantic search}. In <i>World Wide Web Conference Series</i> (700–709). doi:10.1145/775152.775250</p>
 
-<p>[5] {% bibtex %}
-@inproceedings{924176,
-author = {Cristiano Rocha and Daniel Schwabe and Marcus Poggi de Aragão},
-title = {{A hybrid approach for searching in the semantic web}},
-booktitle = {World Wide Web Conference Series},
-year = {2004},
-pages = {374–383},
-doi = {10.1145/988672.988723},
-masid = {924176}
-}
-{% endbibtex %}</p>
+<p>[5] 
+Rocha, C., Schwabe, D., &#38; de Aragão, M. P. (2004). {A hybrid approach for searching in the semantic web}. In <i>World Wide Web Conference Series</i> (374–383). doi:10.1145/988672.988723</p>
 
-<p>[6] {% bibtex %}
-@article{237317,
-author = {Jeff Heflin and James Hendler},
-title = {{Searching the Web with SHOE}},
-year = {2000},
-masid = {237317}
-}
-{% endbibtex %}</p>
+<p>[6] 
+Heflin, J., &#38; Hendler, J. (2000). {Searching the Web with SHOE}.</p>
 
-<p>[7] {% bibtex %}
-@inproceedings{62263,
-author = {Nenad Stojanovic and Alexander Maedche and Steffen Staab and Rudi Studer and York Sure},
-title = {{SEAL: a framework for developing SEmantic PortALs}},
-booktitle = {International Conference on Knowledge Capture},
-year = {2001},
-pages = {155–162},
-doi = {10.1145/500737.500762},
-masid = {62263}
-}
-{% endbibtex %}</p>
+<p>[7] 
+Stojanovic, N., Maedche, A., Staab, S., Studer, R., &#38; Sure, Y. (2001). {SEAL: a framework for developing SEmantic PortALs}. In <i>International Conference on Knowledge Capture</i> (155–162). doi:10.1145/500737.500762</p>
 ]]></content>
   </entry>
   

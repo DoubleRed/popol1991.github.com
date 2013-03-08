@@ -4,7 +4,7 @@
   <title><![CDATA[Category: study | Sound of Wind]]></title>
   <link href="http://popol1991.github.com/blog/categories/study/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2013-03-04T14:22:59+08:00</updated>
+  <updated>2013-03-08T16:30:31+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -48,7 +48,7 @@
       <li>Textual descriptions</li>
       <li>Feature list</li>
       <li>User stories
-  {% img right http://popol1991.github.com/images/posts/use%20case.png 200 %}</li>
+  <img class="right" src="http://popol1991.github.com/images/posts/use%20case.png" width="200"></li>
       <li>Use Case: A use case describes an interaction between the user and the system for <strong>a specific functionality</strong> of the system.
         <ul>
           <li>Main Success Scenario (MSS) describes the most straightforward interaction for a given use case, which assumes nothing goes wrong.</li>
@@ -97,7 +97,7 @@
   <li><strong>Interface</strong>: the list of public operations supported by a component and what each operation does.</li>
   <li><strong>Application Programming Interface (API)</strong>: contract between the component and its users, which could be other components as well as other softwares.</li>
   <li><strong>Modeling component behavior using Sequence Diagrams</strong>
-{% img right http://popol1991.github.com/images/posts/sd.png 300 %}
+<img class="right" src="http://popol1991.github.com/images/posts/sd.png" width="300">
     <ul>
       <li>A UML sequence diagram captures the <em>interactions between multiple components for a given scenario.</em></li>
       <li>Discover APIs from SD</li>
@@ -125,7 +125,7 @@
 
 <h3 id="cost-of-fixing-software-bugs">Cost of Fixing Software Bugs</h3>
 <p>The earlier we find a bug, the easier and cheaper to fix it.
-{% img right http://popol1991.github.com/images/posts/cost_of_test.png %}
+<img class="right" src="http://popol1991.github.com/images/posts/cost_of_test.png">
 * <strong>Unit Test</strong>: unit testing is for testing of individual units (methods, classes, subsystems, …)
 * <strong>Integration Test</strong>: Integration testing allows verification of the correctness of interactions between subsystems.</p>
 

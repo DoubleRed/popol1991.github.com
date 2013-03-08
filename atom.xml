@@ -4,7 +4,7 @@
   <title><![CDATA[Sound of Wind]]></title>
   <link href="http://popol1991.github.com/atom.xml" rel="self"/>
   <link href="http://popol1991.github.com/"/>
-  <updated>2013-03-04T14:22:36+08:00</updated>
+  <updated>2013-03-08T16:30:31+08:00</updated>
   <id>http://popol1991.github.com/</id>
   <author>
     <name><![CDATA[popol]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JSP与Servlet的区别以及为什么Servlet不是线程安全]]></title>
+    <link href="http://popol1991.github.com/blog/2013/03/08/jspyu-servletde-qu-bie-yi-ji-wei-shi-yao-servletbu-shi-xian-cheng-an-quan/"/>
+    <updated>2013-03-08T16:07:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2013/03/08/jspyu-servletde-qu-bie-yi-ji-wei-shi-yao-servletbu-shi-xian-cheng-an-quan</id>
+    <content type="html"><![CDATA[<p>其实这俩问题我看过好几遍了，还记得在新加坡的时候考完试马不停蹄的就回图书馆看servlet解析了，但一直都没记忆清楚…直接导致这两天面试的时候被问道这些问题只能给个答案不能说为什么，弄得像我是死记硬背的似的…</p>
+
+<h2 id="servlet">Servlet</h2>
+
+<p>Servlet是一个Java接口，实现了这个接口的实例运行在服务器上，可以对客户端的请求做出回应。一个著名的实现了Servlet接口的类是HttpServlet，它实现了解析常用的HTTP协议的功能，对通过URL进行的请求进行回应。</p>
+
+<p>第一次调用一个servlet的时候，系统会初始化该类的一个对象，在这之后若调用同一个servlet，则会直接重用之前的那个实例。说是重用，实际上是多加一个线程。如果有十个人同时访问一个网站里的同一个servlet，那这个servlet就有是个线程，并且线程之间有共用资源，这也是为什么servlet不是线程安全的原因。</p>
+
+<p>请求到来后，servlet可以根据HttpServletRequest来分析请求，并把相应以字符串的方式写入HttpServletResponse发回给浏览器。</p>
+
+<h2 id="jsp">JSP</h2>
+
+<p>JSP主要用在展现层，以模板的方式生成页面。JSP支持例如JSTL的来简化脚本，也支持表达式语言(Expression Language)来访问后台数据。一个JSP页面第一次被请求的时候，servlet容器会将其编译成一个HttpServlet的子类，在之后的访问中，就会一直重用这个编译好的类。</p>
+
+<h2 id="jspservlet">JSP和Servlet的区别</h2>
+
+<p>虽然JSP出现的比Servlet晚，但JSP并没有提供什么Servlet实现不了的功能。唯一的区别和好处就是，JSP让程序员把展现层和数据层分开，并且更加轻松的生成返回页面，而不是像在Servlet里一样费劲的用字符串拼凑。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hulu Recommendation System - Note]]></title>

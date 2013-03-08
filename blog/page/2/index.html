@@ -7,7 +7,7 @@
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="Lecture 3 L3P1 - Figuring out Requirements Functional requirements specify what the system should do. Non-functional requirements specify the &hellip;">
+	<meta name="description" content="It’s a reference used by myself to teach others what functional dependency and normalization are. Example id firstName lastName address department &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -105,6 +105,296 @@ MathJax.Hub.Config({
 	
   
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h1 class="title"><a href="/blog/2012/11/15/functional-dependency-and-normalization/">Functional Dependency and Normalization</a></h1>
+	<div class="entry-content">
+		<p><em>It’s a reference used by myself to teach others what functional dependency and normalization are.</em></p>
+
+<h3 id="example">Example</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">id</th>
+      <th style="text-align: center">firstName</th>
+      <th style="text-align: center">lastName</th>
+      <th style="text-align: center">address</th>
+      <th style="text-align: center">department</th>
+      <th style="text-align: center">position</th>
+      <th style="text-align: center">salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Dewi</td>
+      <td style="text-align: center">Srijaya</td>
+      <td style="text-align: center">addr1</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Lzabel</td>
+      <td style="text-align: center">Leong</td>
+      <td style="text-align: center">addr2</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">John</td>
+      <td style="text-align: center">Smith</td>
+      <td style="text-align: center">addr3</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Axel</td>
+      <td style="text-align: center">Bayer</td>
+      <td style="text-align: center">addr4</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Winnie</td>
+      <td style="text-align: center">Lee</td>
+      <td style="text-align: center">addr5</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Manager</td>
+      <td style="text-align: center">2500</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">Sylvia</td>
+      <td style="text-align: center">Tok</td>
+      <td style="text-align: center">addr6</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Manager</td>
+      <td style="text-align: center">2600</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">Eric</td>
+      <td style="text-align: center">Wei</td>
+      <td style="text-align: center">addr7</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Assistant Manager</td>
+      <td style="text-align: center">2200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">Security Guard</td>
+      <td style="text-align: center">1500</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The table above has many potential problems such <strong>Insertion anomaly</strong>, <strong>Update anomaly</strong> and lots of <strong>Redundant storage</strong>.  In order to eliminate these problems, we can decompose it into 2 tables below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">id</th>
+      <th style="text-align: center">firstName</th>
+      <th style="text-align: center">lastName</th>
+      <th style="text-align: center">address</th>
+      <th style="text-align: center">department</th>
+      <th style="text-align: center">position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Dewi</td>
+      <td style="text-align: center">Srijaya</td>
+      <td style="text-align: center">addr1</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Lzabel</td>
+      <td style="text-align: center">Leong</td>
+      <td style="text-align: center">addr2</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">John</td>
+      <td style="text-align: center">Smith</td>
+      <td style="text-align: center">addr3</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Clerk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Axel</td>
+      <td style="text-align: center">Bayer</td>
+      <td style="text-align: center">addr4</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Trainee</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Winnie</td>
+      <td style="text-align: center">Lee</td>
+      <td style="text-align: center">addr5</td>
+      <td style="text-align: center">Sports</td>
+      <td style="text-align: center">Manager</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">Sylvia</td>
+      <td style="text-align: center">Tok</td>
+      <td style="text-align: center">addr6</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Manager</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">Eric</td>
+      <td style="text-align: center">Wei</td>
+      <td style="text-align: center">addr7</td>
+      <td style="text-align: center">Toys</td>
+      <td style="text-align: center">Assistant Manager</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">?</td>
+      <td style="text-align: center">Security Guard</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">position</th>
+      <th style="text-align: center">salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Clerk</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Trainee</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Manager</td>
+      <td style="text-align: center">2500</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Assistant Manager</td>
+      <td style="text-align: center">2200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Security Guard</td>
+      <td style="text-align: center">1500</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="definitions">Definitions</h3>
+<ul>
+  <li>Trivial / Non-Trivial / Complete Non-Trivial FDs</li>
+  <li>SuperKeys</li>
+  <li>Candidate Keys: <strong>minimal</strong></li>
+  <li>Primary Keys: one of candidate key</li>
+</ul>
+
+<h3 id="reasonning">Reasonning</h3>
+<ul>
+  <li>Armstrong’s Axioms
+$$
+\begin{align}
+\mbox{Refelxivity: } &amp; \mbox{ if } Y\subset X \mbox{ then } X\rightarrow Y 
+\end{align}
+$$</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+\begin{align}
+\mbox{Augmentation: } & \mbox{ if } X\rightarrow Y \mbox{ then } X\cup Z\rightarrow Y\cup Z 
+\end{align}
+ %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+\begin{align}
+\mbox{Transitivity: } & \mbox{ if } X\rightarrow Y \mbox{ and } Y\rightarrow Z \mbox{ then } X\rightarrow Z 
+\end{align}
+ %]]></script>
+
+<h3 id="closure-and-equivalence">Closure and Equivalence</h3>
+<ul>
+  <li>For a set F of functional dependencies, we call the closure of $ F $, noted $ F+ $, the set of all functional dependencies that F implies.</li>
+  <li>Two sets of functional dependencies $ F $ and $ G $ are equivalent if and only if $ F+=G+$</li>
+  <li>Closure can be used for fingding keys</li>
+</ul>
+
+<h3 id="minimal-cover">Minimal Cover</h3>
+<ul>
+  <li>A set of dependencies F is minimal if and only if:
+    <ol>
+      <li>Every right-hand side is a single attribute</li>
+      <li>For no functional dependency $ X\rightarrow A $ in $ F $ and proper subset $ Z $ of $ X $ is $ F- ( X\rightarrow A ) \cup ( Z\rightarrow A ) $ equivalent to $ F $ ( $ X $ cannot be simplified)</li>
+      <li>For no function dependency $ X\rightarrow A $ in $ F $ is the set $ F- ( X\rightarrow A ) $ equivalent to $ F $ ( $ X\rightarrow A $ is not extraneous)</li>
+    </ol>
+  </li>
+  <li>A set of functional dependencies $ F $ is a <strong>minimal cover</strong> of a set of funcitonal dependencies $ G $ if and only if
+    <ul>
+      <li>$ F $ is minimal</li>
+      <li>$ F $ is equivalent to $ G $</li>
+      <li>( $ F $ can be impied by $ G $, and $ F $ is minimal )</li>
+    </ul>
+  </li>
+</ul>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-15T10:07:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+</div>
+	
+</div></article>
 
 
     <article class="post">
