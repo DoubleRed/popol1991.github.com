@@ -7,7 +7,8 @@
 	<meta name="author" content="popol">
 
 	
-	<meta name="description" content="It’s a reference used by myself to teach others what functional dependency and normalization are. Example id firstName lastName address department &hellip;">
+	<meta name="description" content="Background
+In this semester’s software engineering module, we developed a command-line-interface (CLI) based to-do list. As a CLI software, it has &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -105,6 +106,62 @@ MathJax.Hub.Config({
 	
   
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h1 class="title"><a href="/blog/2012/11/17/factory-pattern/">Factory Pattern</a></h1>
+	<div class="entry-content">
+		<h2 id="background">Background</h2>
+<p>In this semester’s software engineering module, we developed a command-line-interface (CLI) based to-do list.  As a CLI software, it has many commands, each of which accepts different arguments and does different things.  So, intuitively, we have many command classes, and for convenience we unified the interface of all command classes and extracted an abstract class called Command out.  As a consequence we can manipulate them in the same way.</p>
+
+<p>After getting user input from command line system, the program has to decide which command is called by user and create a instance of that command class.  In this case, Factory Pattern comes to mind.  Here’s how we want to use the factory:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="java"><span class="line"><span class="n">Command</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">commandFactory</span><span class="o">.</span><span class="na">createCommand</span><span class="o">(</span><span class="n">userInput</span><span class="o">);</span>
+</span><span class="line"><span class="n">cmd</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+</span><span class="line"><span class="n">showInCommandLine</span><span class="o">(</span><span class="n">cmd</span><span class="o">.</span><span class="na">getFeedback</span><span class="o">());</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="intent">Intent</h2>
+<ul>
+  <li>creates objects without exposing the instantiation logic to the client ( client is not aware of which specific concrete class is used )</li>
+  <li>refers to newly created object through a common interface</li>
+</ul>
+
+<h2 id="class-diagram">Class Diagram</h2>
+<p><img src="/images/posts/FactoryPattern.png" width="500" /></p>
+
+
+		
+		<a href="/blog/2012/11/17/factory-pattern/" class="more-link">Read on &rarr;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-17T11:05:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/develop/'>develop</a>
+
+
+</div>
+	
+</div></article>
 
 
     <article class="post">

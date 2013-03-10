@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: math | Sound of Wind]]></title>
+  <link href="http://popol1991.github.com/blog/categories/math/atom.xml" rel="self"/>
+  <link href="http://popol1991.github.com/"/>
+  <updated>2013-03-10T20:49:35+08:00</updated>
+  <id>http://popol1991.github.com/</id>
+  <author>
+    <name><![CDATA[popol]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[使用均匀分布生成任意分布随机数]]></title>
+    <link href="http://popol1991.github.com/blog/2013/03/10/shi-yong-jun-yun-fen-bu-sheng-cheng-ren-yi-fen-bu-sui-ji-shu/"/>
+    <updated>2013-03-10T20:11:00+08:00</updated>
+    <id>http://popol1991.github.com/blog/2013/03/10/shi-yong-jun-yun-fen-bu-sheng-cheng-ren-yi-fen-bu-sui-ji-shu</id>
+    <content type="html"><![CDATA[<h2 id="section">问题</h2>
+<p>输入：给定随机变量$X\sim R(0,1)$
+输出：随机变量$Y\sim F$，其中$F$为任意随机分布</p>
+
+<h2 id="section-1">1. 使用反函数</h2>
+
+<p>对于一般分布$F(x)$，若$F(x)$处处连续且严格单调，其反函数$G$存在，那么就有$G(X)\sim F$，证明如下：
+$$
+P\{G(X)&lt;x\} = P\{F(G(X))&lt;F(x)\} = P\{X&lt;F(x)\}
+$$
+注意到均与分布函数为$R(x)=x$，所以$P\{X&lt;F(x)\}=F(x)$，即$G(X)\sim F$。</p>
+
+<p>编程实现的时候需要先求出反函数$G$，然后生成伪随机数$X$，带入$G$中计算就可以了！</p>
+
+<h2 id="section-2">2. 正态分布怎么办？</h2>
+<p>正态分布的分布函数是求不出逆函数的，这可怎么办？这里就有中心极限定理的用武之地了。</p>
+
+<h3 id="section-3">中心极限定理</h3>
+<p>The central limit theorem states that, given certain conditions, the mean of a sufficiently large number of independent random variables, each with a well-defined mean and well-defined variance, will be approximately normally distributed.</p>
+
+<p>意思就是说，用一堆独立的，等分布的，随机变量加起来得到的和是近似服从正态分布的！这样我们利用多个均匀分布的随机变量相加并标准化后就能得到正态分布了！</p>
+
+<h3 id="ps">P.S</h3>
+<p>过几天在补上如何分析需要多少个随机变量相加才能达到满足要求的精度，以及另一个用瑞丽分布生成正态分布的办法！</p>
+]]></content>
+  </entry>
+  
+</feed>
